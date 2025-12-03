@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero-slider {
+    position: relative;
+    width: 100%;
+    height: 650px; /* ปรับความสูงได้ */
+    overflow: hidden;
+}
+
+.hero-slider .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideShow 18s infinite;
+}
+
+/* ทำให้ภาพแต่ละภาพสลับกัน */
+.hero-slider .slide:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-slider .slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.hero-slider .slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+/* เอฟเฟกต์ fade */
+@keyframes slideShow {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    33% { opacity: 1; }
+    43% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    min-height: 100px;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  /* <<< สำคัญที่สุด */
+    padding: 10px 0;
+}
+
+/* โลโก้ซ้าย */
+.logo-section .logo {
+    width: 33%;
+    height: auto;
+    padding-left: 70px;
+}
+
+/* กล่องด้านขวา = เมนู + ปุ่ม */
+.right-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;   /* ระยะห่างเมนู ↔ ปุ่ม */
+    margin-top: -100px;
+}
+
+/* เมนูด้านขวา */
+.main-nav {
+    display: flex;
+    gap: 25px;
+    font-weight: bold;
+}
+
+.main-nav a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* ปุ่มด้านขวา */
+.right-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: #2e2e2e;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.lang-switch span {
+    padding: 3px 8px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.lang-switch .active {
+    background: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.apply-btn {
+    background: linear-gradient(#ffffff, #dcdcdc);
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
