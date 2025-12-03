@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>มหาลัยจีนีมิ ⎸GENIMI UNIVERSITY</title>
 </head>
+
 <body>
     <header class="main-header">
         <div class="header-container">
@@ -14,35 +16,80 @@
                 <img src="Pictures/Pictures.png" class="logo" alt="Logo">
             </div>
 
-        <div class="right-section">
-        <nav class="main-nav">
-            <a href="#">หลักสูตร</a>
-            <a href="#">ตารางเรียน69</a>
-            <a href="#">ข่าวสาร</a>
-            <a href="#">เกี่ยวกับมหาวิทยาลัย</a>
-        </nav>
+            <div class="right-section">
+                <nav class="main-nav">
+                    <a href="#" id="nav-course">หลักสูตร</a>
+                    <a href="#" id="nav-schedule">ตารางเรียน69</a>
+                    <a href="#" id="nav-news">ข่าวสาร</a>
+                    <a href="#" id="nav-about">เกี่ยวกับมหาวิทยาลัย</a>
+                </nav>
+                <button class="search-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+</button>
 
-        <div class="right-tools">
-            <button class="search-btn">🔎</button>
+                <div class="lang-switch">
+                    <div id="lang-th" class="lang-option active" onclick="setLanguage('th')">
+                        <img src="https://flagcdn.com/w80/th.png" alt="Thai Flag">
+                    </div>
 
-        <div class="lang-switch">
-            <span class="active">TH</span>
-            <span>EN</span>
+                    <div id="lang-en" class="lang-option" onclick="setLanguage('en')">
+                        <img src="https://flagcdn.com/w80/gb.png" alt="English Flag">
+                    </div>
+                </div>
+
+                <button class="apply-btn" id="btn-apply">สมัครเรียน</button>
+            </div>
         </div>
-
-        <button class="apply-btn">สมัครเรียน</button>
         </div>
-      </div>
+    </header>
+
+    <div class="hero-slider">
+        <div class="slide" style="background-image: url('Pictures/1.jpg');"></div>
+        <div class="slide" style="background-image: url('Pictures/2.jpg');"></div>
     </div>
-</header>
-
-<div class="hero-slider">
-    <div class="slide" style="background-image: url('Pictures/1.jpg');"></div>
-    <div class="slide" style="background-image: url('Pictures/2.jpg');"></div>
-</div>
 
 
+    <script>
+        // 1. ฐานข้อมูลคำศัพท์ (Dictionary)
+        const translations = {
+            th: {
+                navCourse: "หลักสูตร",
+                navSchedule: "ตารางเรียน69",
+                navNews: "ข่าวสาร",
+                navAbout: "เกี่ยวกับมหาวิทยาลัย",
+                btnApply: "สมัครเรียน"
+            },
+            en: {
+                navCourse: "Curriculum",
+                navSchedule: "Schedule 69",
+                navNews: "News & Events",
+                navAbout: "About Us",
+                btnApply: "Apply Now"
+            }
+        };
 
+        // 2. ฟังก์ชันเปลี่ยนภาษา
+        function setLanguage(lang) {
+            // อัปเดตข้อความตาม ID ที่เราตั้งไว้
+            document.getElementById('nav-course').innerText = translations[lang].navCourse;
+            document.getElementById('nav-schedule').innerText = translations[lang].navSchedule;
+            document.getElementById('nav-news').innerText = translations[lang].navNews;
+            document.getElementById('nav-about').innerText = translations[lang].navAbout;
+            document.getElementById('btn-apply').innerText = translations[lang].btnApply;
 
+            // อัปเดตสีปุ่ม (ย้าย class 'active')
+            if (lang === 'th') {
+                document.getElementById('lang-th').classList.add('active');
+                document.getElementById('lang-en').classList.remove('active');
+            } else {
+                document.getElementById('lang-en').classList.add('active');
+                document.getElementById('lang-th').classList.remove('active');
+            }
+        }
+    </script>
 </body>
+
 </html>

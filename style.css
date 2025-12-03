@@ -6,7 +6,8 @@ body {
 .hero-slider {
     position: relative;
     width: 100%;
-    height: 650px; /* ปรับความสูงได้ */
+    height: 95vh;
+    /* ปรับความสูงได้ */
     overflow: hidden;
 }
 
@@ -15,33 +16,42 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     opacity: 0;
-    animation: slideShow 18s infinite;
+    animation: slideShow 12s infinite;
 }
 
+
 /* ทำให้ภาพแต่ละภาพสลับกัน */
+
 .hero-slider .slide:nth-child(1) {
     animation-delay: 0s;
 }
 
 .hero-slider .slide:nth-child(2) {
-    animation-delay: 5s;
+    animation-delay: 4s;
 }
 
-.hero-slider .slide:nth-child(3) {
-    animation-delay: 10s;
-}
 
 /* เอฟเฟกต์ fade */
-@keyframes slideShow {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    33% { opacity: 1; }
-    43% { opacity: 0; }
-    100% { opacity: 0; }
-}
 
+@keyframes slideShow {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+    }
+    43% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 .main-header {
     position: absolute;
@@ -61,27 +71,49 @@ body {
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* <<< สำคัญที่สุด */
-    padding: 10px 0;
+    /* สำคัญ: จัดให้โลโก้กับเมนูตรงกันแนวตั้ง */
+    justify-content: space-between;
+    padding: 5px 0;
 }
 
-/* โลโก้ซ้าย */
+
+/* แก้ไขส่วน Logo */
+
 .logo-section .logo {
-    width: 33%;
-    height: auto;
-    padding-left: 70px;
+    height: 150px;
+    /* 1. เพิ่มขนาด (เดิม 50px) ปรับเลขนี้ได้ตามใจชอบ */
+    width: auto;
+    /* ให้สัดส่วนกว้างคูณยาวเท่าเดิม ภาพไม่เบี้ยว */
+    display: block;
+    /* 2. แก้เรื่องชิดซ้ายไป */
+    margin-left: 50px;
+    /* ขยับออกจากขอบซ้ายนิดนึง */
+    /* หรือถ้าอยากให้ดูพรีเมียมขึ้น ใส่เงาให้โลโก้นิดๆ ได้ครับ (ไม่ใส่ก็ได้) */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+    /* เพิ่มลูกเล่นเวลาชี้ */
 }
+
+
+/* แถม: เวลาเอาเมาส์ชี้โลโก้ ให้ขยายขึ้นนิดนึง */
+
+.logo-section .logo:hover {
+    transform: scale(1.05);
+}
+
 
 /* กล่องด้านขวา = เมนู + ปุ่ม */
+
 .right-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;   /* ระยะห่างเมนู ↔ ปุ่ม */
-    margin-top: -100px;
+    gap: 30px;
 }
 
+
 /* เมนูด้านขวา */
+
 .main-nav {
     display: flex;
     gap: 25px;
@@ -91,10 +123,38 @@ body {
 .main-nav a {
     color: #000000;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
 }
 
+
+/* สร้างเส้นที่ซ่อนอยู่ */
+
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #000;
+    /* สีเส้นขีดเส้นใต้ */
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+
+/* เมื่อ Hover ให้เส้นขยายออก */
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+
 /* ปุ่มด้านขวา */
+
 .right-tools {
     display: flex;
     align-items: center;
@@ -104,37 +164,123 @@ body {
 .search-btn {
     background: none;
     border: none;
-    color: white;
-    font-size: 20px;
+    color: #333;
+    /* เปลี่ยนสีไอคอนตรงนี้ (ถ้าพื้นหลังมืดให้ใช้ white) */
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s;
 }
+
+.search-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    /* มีวงกลมจางๆ ขึ้นตอนชี้ */
+}
+
+
+/* กล่องรวมปุ่มสลับภาษา */
 
 .lang-switch {
     display: flex;
     align-items: center;
-    gap: 5px;
-    background: #2e2e2e;
-    padding: 3px 10px;
-    border-radius: 20px;
+    gap: 12px;
+    /* ระยะห่างระหว่างธง */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 6px 12px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.lang-switch span {
-    padding: 3px 8px;
+
+/* สไตล์ของตัวก้อนธง */
+
+.lang-option {
     cursor: pointer;
-    color: #ccc;
+    opacity: 0.5;
+    /* ปกติให้จางๆ หน่อย */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.lang-switch .active {
-    background: white;
-    color: black;
-    border-radius: 10px;
+
+/* สไตล์รูปภาพธง */
+
+.lang-option img {
+    width: 28px;
+    /* กำหนดขนาดธง */
+    height: 28px;
+    border-radius: 50%;
+    /* ทำให้เป็นวงกลม */
+    object-fit: cover;
+    /* ตัดภาพส่วนเกินออกให้สวย */
+    border: 2px solid transparent;
+    /* เตรียมขอบไว้ */
+}
+
+
+/* เมื่อเอาเมาส์ชี้ */
+
+.lang-option:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+    /* ขยายใหญ่ขึ้นนิดนึง */
+}
+
+
+/* สถานะ Active (ภาษาที่ถูกเลือก) */
+
+.lang-option.active {
+    opacity: 1;
+    /* ชัดเต็มร้อย */
+    transform: scale(1.15);
+    /* ใหญ่กว่าเพื่อน */
+}
+
+.lang-option.active img {
+    border: 2px solid #fff;
+    /* ใส่ขอบขาวให้รู้ว่าเลือกอันนี้อยู่ */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* ใส่เงา */
 }
 
 .apply-btn {
-    background: linear-gradient(#ffffff, #dcdcdc);
-    padding: 8px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    color: #333;
+    padding: 10px 24px;
+    /* เพิ่มพื้นที่หายใจให้ปุ่ม */
     border: none;
-    border-radius: 20px;
-    font-weight: bold;
+    border-radius: 30px;
+    /* ให้กลมมนมากขึ้น */
+    font-weight: 700;
+    font-size: 16px;
     cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* เงาปกติ */
+    transition: all 0.3s ease;
+    /* เอฟเฟกต์สมูท */
+}
+
+
+/* เอฟเฟกต์ตอนเอาเมาส์ชี้ */
+
+.apply-btn:hover {
+    transform: translateY(-2px);
+    /* ลอยขึ้นนิดนึง */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* เงาชัดขึ้น */
+    background: linear-gradient(135deg, #ffffff 0%, #e6e6e6 100%);
+}
+
+
+/* เอฟเฟกต์ตอนกด */
+
+.apply-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
