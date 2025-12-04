@@ -31,14 +31,13 @@
 </button>
 
                 <div class="lang-switch">
-                    <div id="lang-th" class="lang-option active" onclick="setLanguage('th')">
-                        <img src="https://flagcdn.com/w80/th.png" alt="Thai Flag">
-                    </div>
-
-                    <div id="lang-en" class="lang-option" onclick="setLanguage('en')">
-                        <img src="https://flagcdn.com/w80/gb.png" alt="English Flag">
-                    </div>
-                </div>
+    <div id="lang-th" class="lang-option active" onclick="setLanguage('th')">
+        <img src="https://flagcdn.com/w80/th.png" alt="Thai">
+    </div>
+    <div id="lang-en" class="lang-option" onclick="setLanguage('en')">
+        <img src="https://flagcdn.com/w80/gb.png" alt="English">
+    </div>
+</div>
 
                 <button class="apply-btn" id="btn-apply">สมัครเรียน</button>
             </div>
@@ -49,47 +48,260 @@
     <div class="hero-slider">
         <div class="slide" style="background-image: url('Pictures/1.jpg');"></div>
         <div class="slide" style="background-image: url('Pictures/2.jpg');"></div>
+        
+        <div class="bottom-quick-menu">
+    <div class="quick-menu-container">
+        <a href="#" class="quick-item">
+            <span id="q-course">หลักสูตร</span>
+        </a>
+        <a href="#" class="quick-item">
+            <span id="q-inter">International<br>Programs</span>
+        </a>
+        <a href="#" class="quick-item">
+            <span id="q-tuition">ค่าเล่าเรียน</span>
+        </a>
+        <a href="#" class="quick-item">
+            <span id="q-apply">ข้อมูลสมัคร<br>เรียน</span>
+        </a>
+        <a href="#" class="quick-item">
+             <span id="q-scholar">ทุนการศึกษา</span>
+        </a>
+        <a href="#" class="quick-item">
+             <span id="q-loan">กู้ยืม กยศ.</span>
+        </a>
+        <a href="#" class="quick-item">
+             <span id="q-calendar">ปฏิทินการ<br>ศึกษา</span>
+        </a>
     </div>
+</div>
+        </div>
+    </div>
+    </div> 
 
+    <section class="news-section">
+    <div class="content-container">
+        
+        <div class="section-header">
+            <h2 class="section-title" id="news-header-title">ข่าวสารและบทความ</h2>
+            <span class="section-subtitle" id="news-header-sub">ข่าวสารมหาวิทยาลัย</span>
+        </div>
 
-    <script>
+        <div class="news-grid">
+            
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                    <img src="https://www.expedia.co.th/stories/wp-content/uploads/2022/07/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%AA%E0%B8%A7%E0%B8%A2-26.jpg" alt="News 1" class="news-img">
+                    <span class="news-tag new" id="tag-1">หลักสูตรใหม่</span>
+                </div>
+                <div class="news-content">
+                    <span class="news-date">4/12/2025</span>
+                    <h3 class="news-headline" id="news-1-title">Virtual Production and Immersive Experience Design อนาคตของวงการภาพยนตร์ระดับโลก</h3>
+                    <p class="news-excerpt" id="news-1-desc">อยากสร้างภาพยนตร์เจ๋งๆ ในฉากสุดล้ำที่เหนือจินตนาการ หรือปั้นคอนเทนต์เสมือนจริง คณะดิจิทัลมีเดียและศิลปะภาพยนตร์...</p>
+                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                        <img src="https://mthai.com/app/uploads/2021/08/universitythai2.jpg" alt="News 2" class="news-img">
+                    <span class="news-tag highlight">New Community!</span>
+                </div>
+                <div class="news-content">
+                    <span class="news-date">4/12/2025</span>
+                    <h3 class="news-headline" id="news-2-title">New Community! DoBeDo Student Residence ที่พักนักศึกษาสุดคูล ตอบโจทย์ชาว BU ที่สุด</h3>
+                    <p class="news-excerpt" id="news-2-desc">เปิดตัวอย่างเป็นทางการ พร้อมให้จองห้องพักแล้ววันนี้ กับ DoBeDo Student Residence ที่พักสำหรับเหล่านักศึกษา...</p>
+                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                    <img src="https://cms.kapook.com/uploads/tag/1/ID_313_636234a1a695e.jpg" alt="News 3" class="news-img">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">12/09/2025</span>
+                    <h3 class="news-headline" id="news-3-title">รู้จัก BU แบบอินไซท์ รวมทุกหลักสูตร ตอบโจทย์ตลาดงาน ทันเทรนด์ เน้นลงมือจริง</h3>
+                    <p class="news-excerpt" id="news-3-desc">เมื่อเทรนด์โลกเปลี่ยนเร็ว การเป็นคนที่ทันเทรนด์และพร้อมรับมือกับอนาคตที่เปลี่ยนไปจึงสำคัญที่สุด ไม่ว่าจะเป็นด้านเทคโนโลยี...</p>
+                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="news-image-wrapper">
+                    <img src="https://info.muslimthaipost.com/upfile/2015/07/21/6.jpg" alt="News 4" class="news-img">
+                </div>
+                <div class="news-content">
+                    <span class="news-date">30/10/2025</span>
+                    <h3 class="news-headline" id="news-4-title">มากกว่าแค่งานออกแบบ: ส่องอินไซท์การเรียน ป.โท สถาปัตย์ฯ</h3>
+                    <p class="news-excerpt" id="news-4-desc">ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย...</p>
+                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                </div>
+            </article>
+
+        </div> 
+        
+        <a href="#" class="view-all-bar">
+            <span class="view-all-text" id="btn-view-all">อ่านข่าวทั้งหมด</span>
+            <span class="view-all-icon">
+                <svg width="30" height="16" viewBox="0 0 30 16" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="0" y1="8" x2="28" y2="8"></line>
+                    <polyline points="22 2 28 8 22 14"></polyline>
+                </svg>
+            </span>
+        </a>
+
+    </div> 
+</section>
+            </div>
+        </div>
+    </section>
+
+<script>
         // 1. ฐานข้อมูลคำศัพท์ (Dictionary)
         const translations = {
             th: {
+                // เมนูบน
                 navCourse: "หลักสูตร",
                 navSchedule: "ตารางเรียน69",
                 navNews: "ข่าวสาร",
                 navAbout: "เกี่ยวกับมหาวิทยาลัย",
-                btnApply: "สมัครเรียน"
+                btnApply: "สมัครเรียน",
+                
+                // เมนูลอย (Quick Menu)
+                qCourse: "หลักสูตร",
+                qInter: "International<br>Programs",
+                qTuition: "ค่าเล่าเรียน",
+                qApply: "ข้อมูลสมัคร<br>เรียน",
+                qScholar: "ทุนการศึกษา",
+                qLoan: "กู้ยืม กยศ.",
+                qCalendar: "ปฏิทินการ<br>ศึกษา",
+
+                // ข่าวสาร
+                newsHeader: "ข่าวสารและบทความ",
+                newsSub: "ข่าวสารมหาวิทยาลัย",
+                tagNew: "หลักสูตรใหม่",
+                btnViewAll: "อ่านข่าวทั้งหมด",
+                readMore: "อ่านต่อ &rarr;",
+
+                // เนื้อหาข่าว
+                news1Title: "Virtual Production and Immersive Experience Design อนาคตของวงการภาพยนตร์ระดับโลก",
+                news1Desc: "อยากสร้างภาพยนตร์เจ๋งๆ ในฉากสุดล้ำที่เหนือจินตนาการ หรือปั้นคอนเทนต์เสมือนจริง คณะดิจิทัลมีเดียและศิลปะภาพยนตร์...",
+                
+                news2Title: "New Community! DoBeDo Student Residence ที่พักนักศึกษาสุดคูล ตอบโจทย์ชาว BU ที่สุด",
+                news2Desc: "เปิดตัวอย่างเป็นทางการ พร้อมให้จองห้องพักแล้ววันนี้ กับ DoBeDo Student Residence ที่พักสำหรับเหล่านักศึกษา...",
+                
+                news3Title: "รู้จัก BU แบบอินไซท์ รวมทุกหลักสูตร ตอบโจทย์ตลาดงาน ทันเทรนด์ เน้นลงมือจริง",
+                news3Desc: "เมื่อเทรนด์โลกเปลี่ยนเร็ว การเป็นคนที่ทันเทรนด์และพร้อมรับมือกับอนาคตที่เปลี่ยนไปจึงสำคัญที่สุด ไม่ว่าจะเป็นด้านเทคโนโลยี...",
+                
+                news4Title: "มากกว่าแค่งานออกแบบ: ส่องอินไซท์การเรียน ป.โท สถาปัตย์ฯ",
+                news4Desc: "ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย..."
             },
             en: {
+                // Top Nav
                 navCourse: "Curriculum",
                 navSchedule: "Schedule 69",
                 navNews: "News & Events",
                 navAbout: "About Us",
-                btnApply: "Apply Now"
+                btnApply: "Apply Now",
+
+                // Quick Menu
+                qCourse: "Curriculum",
+                qInter: "International<br>Programs",
+                qTuition: "Tuition Fees",
+                qApply: "Admission<br>Info",
+                qScholar: "Scholarships",
+                qLoan: "Student Loan",
+                qCalendar: "Academic<br>Calendar",
+
+                // News Header
+                newsHeader: "News & Articles",
+                newsSub: "University News",
+                tagNew: "New Course",
+                btnViewAll: "View All News",
+                readMore: "Read More &rarr;",
+
+                // News Content
+                news1Title: "Virtual Production and Immersive Experience Design: The Future of Global Filmmaking",
+                news1Desc: "Want to create cool movies in unimaginable futuristic scenes or craft virtual content? The School of Digital Media...",
+                
+                news2Title: "New Community! DoBeDo Student Residence: The Coolest Dorm for BU Students",
+                news2Desc: "Officially launched and ready for booking! DoBeDo Student Residence, accommodation designed for students...",
+                
+                news3Title: "Get to Know BU: Insight into All Curriculums, Meeting Job Market Needs",
+                news3Desc: "As global trends change rapidly, being trendy and ready for the future is crucial. Whether it involves technology...",
+                
+                news4Title: "More Than Design: Insight into Master of Architecture",
+                news4Desc: "In a highly competitive era, 'design' skills alone might not be enough. The modern architecture and design industry..."
             }
         };
 
-        // 2. ฟังก์ชันเปลี่ยนภาษา
-        function setLanguage(lang) {
-            // อัปเดตข้อความตาม ID ที่เราตั้งไว้
-            document.getElementById('nav-course').innerText = translations[lang].navCourse;
-            document.getElementById('nav-schedule').innerText = translations[lang].navSchedule;
-            document.getElementById('nav-news').innerText = translations[lang].navNews;
-            document.getElementById('nav-about').innerText = translations[lang].navAbout;
-            document.getElementById('btn-apply').innerText = translations[lang].btnApply;
+        // ฟังก์ชันช่วยเช็คก่อนเปลี่ยน (ป้องกัน Error ตัวแดง)
+        function safeSetText(id, text) {
+            const element = document.getElementById(id);
+            if (element) {
+                if (text.includes('<br>')) {
+                    element.innerHTML = text;
+                } else {
+                    element.innerText = text;
+                }
+            }
+        }
 
-            // อัปเดตสีปุ่ม (ย้าย class 'active')
-            if (lang === 'th') {
-                document.getElementById('lang-th').classList.add('active');
-                document.getElementById('lang-en').classList.remove('active');
-            } else {
-                document.getElementById('lang-en').classList.add('active');
-                document.getElementById('lang-th').classList.remove('active');
+        // ฟังก์ชันเปลี่ยนภาษาหลัก
+        function setLanguage(lang) {
+            const t = translations[lang];
+
+            // 1. เปลี่ยนข้อความ (ใช้ safeSetText ป้องกัน Error)
+            safeSetText('nav-course', t.navCourse);
+            safeSetText('nav-schedule', t.navSchedule);
+            safeSetText('nav-news', t.navNews);
+            safeSetText('nav-about', t.navAbout);
+            safeSetText('btn-apply', t.btnApply);
+
+            safeSetText('q-course', t.qCourse);
+            safeSetText('q-inter', t.qInter);
+            safeSetText('q-tuition', t.qTuition);
+            safeSetText('q-apply', t.qApply);
+            safeSetText('q-scholar', t.qScholar);
+            safeSetText('q-loan', t.qLoan);
+            safeSetText('q-calendar', t.qCalendar);
+
+            safeSetText('news-header-title', t.newsHeader);
+            safeSetText('news-header-sub', t.newsSub);
+            safeSetText('tag-1', t.tagNew);
+            safeSetText('btn-view-all', t.btnViewAll);
+
+            safeSetText('news-1-title', t.news1Title);
+            safeSetText('news-1-desc', t.news1Desc);
+            safeSetText('news-2-title', t.news2Title);
+            safeSetText('news-2-desc', t.news2Desc);
+            safeSetText('news-3-title', t.news3Title);
+            safeSetText('news-3-desc', t.news3Desc);
+            safeSetText('news-4-title', t.news4Title);
+            safeSetText('news-4-desc', t.news4Desc);
+
+            // เปลี่ยนปุ่มอ่านต่อทั้งหมด
+            const readMoreBtns = document.querySelectorAll('.read-more');
+            if (readMoreBtns.length > 0) {
+                readMoreBtns.forEach(btn => {
+                    btn.innerHTML = t.readMore;
+                });
+            }
+
+            // 2. จัดการไฮไลท์รูปธง (Active State)
+            const thBtn = document.getElementById('lang-th');
+            const enBtn = document.getElementById('lang-en');
+
+            if (thBtn && enBtn) {
+                if (lang === 'th') {
+                    thBtn.classList.add('active');
+                    enBtn.classList.remove('active');
+                } else {
+                    enBtn.classList.add('active');
+                    thBtn.classList.remove('active');
+                }
             }
         }
     </script>
 </body>
-
 </html>
