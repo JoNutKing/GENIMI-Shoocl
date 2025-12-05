@@ -1,3 +1,19 @@
+/* --- แก้ปัญหาเว็บล้นจอ (วางไว้บนสุดของไฟล์) --- */
+
+* {
+    box-sizing: border-box;
+    /* บังคับให้ Padding ไม่ดันขนาดกล่องให้บวม */
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    /* ตัดส่วนเกินแนวนอนทิ้งทันที */
+    position: relative;
+    /* ช่วยคุม Layout ให้อยู่ในกรอบ */
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
 /* ตั้งค่าพื้นฐานให้ทั้งเว็บ */
@@ -2041,5 +2057,67 @@ h3,
     }
     .social-icons {
         justify-content: center;
+    }
+}
+
+
+/* =========================================
+   แก้ไขพิเศษ สำหรับมือถือจอเล็ก (Width < 380px)
+   ========================================= */
+
+@media (max-width: 380px) {
+    /* 1. บีบ Header ให้เล็กลงอีก */
+    .header-container {
+        padding: 0 10px;
+        /* ลดขอบซ้ายขวา */
+    }
+    .logo-section .logo {
+        height: 32px;
+        /* ลดโลโก้ลงอีกนิด (เดิม 40px) */
+        margin-left: 5px;
+    }
+    /* 2. จัดการกลุ่มปุ่มขวา (Right Tools) */
+    .right-tools {
+        gap: 4px;
+        /* ลดระยะห่างระหว่างปุ่มให้ชิดกันสุดๆ */
+        padding: 4px;
+    }
+    /* ปุ่มค้นหา */
+    .search-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    /* ปุ่มภาษา (ธง) */
+    .lang-option img {
+        width: 20px;
+        height: 20px;
+    }
+    /* ปุ่มสมัครเรียน (ตัวปัญหาที่กินที่เยอะสุด) */
+    .apply-btn {
+        padding: 5px 10px;
+        /* ลดขนาดปุ่ม */
+        font-size: 11px;
+        /* ลดตัวหนังสือ */
+        margin-left: 0;
+    }
+    /* ปุ่มเมนู 3 ขีด */
+    .hamburger-menu {
+        font-size: 20px;
+        padding-left: 8px;
+    }
+    /* 3. ปรับ Quick Menu ด้านล่างไม่ให้ล้น */
+    .bottom-quick-menu {
+        width: 98%;
+        /* ให้เกือบเต็มจอ */
+        bottom: 10px;
+        padding: 5px;
+    }
+    .quick-item {
+        padding: 8px 12px;
+        /* ลดพื้นที่ในปุ่มเมนูลอย */
+    }
+    .quick-item span {
+        font-size: 13px;
+        /* ลดขนาดตัวหนังสือเมนูลอย */
     }
 }
