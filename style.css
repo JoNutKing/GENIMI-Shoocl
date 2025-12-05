@@ -1,6 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ตั้งค่าพื้นฐานให้ทั้งเว็บ */
+
 body {
     margin: 0;
     padding: 0;
+    /* ใช้ฟอนต์ Sarabun เป็นหลักสำหรับเนื้อหาทั่วไป */
+    font-family: 'Sarabun', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* ปรับให้อ่านง่ายขึ้น */
+    font-size: 16px;
+    /* ขนาดตัวหนังสือปกติ */
+    line-height: 1.6;
+    /* ระยะห่างระหว่างบรรทัด (สำคัญมากทำให้อ่านไม่เบียด) */
+    color: #333;
+    /* สีตัวหนังสือพื้นฐาน */
+    -webkit-font-smoothing: antialiased;
+    /* ทำให้ตัวหนังสือคมชัดใน Mac/iPhone */
+}
+
+
+/* ตั้งค่าฟอนต์สำหรับ หัวข้อ, เมนู, และปุ่ม ให้เป็น Prompt */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.main-nav a,
+.apply-btn,
+.banner-btn,
+.read-more,
+.view-all-text,
+.degree-title,
+.news-headline,
+.quick-item span {
+    font-family: 'Prompt', sans-serif;
+    letter-spacing: 0.5px;
+    /* เพิ่มช่องไฟนิดนึงให้ดูหรู */
+}
+
+
+/* ปรับน้ำหนักตัวหนาให้ดูสวยงาม */
+
+h1,
+h2,
+h3,
+.degree-title {
+    font-weight: 600;
+    /* ไม่หนาเตอะเกินไป ดูผู้ดี */
 }
 
 .hero-slider {
@@ -51,27 +99,32 @@ body {
     }
 }
 
+
+/* 1. ปรับ Header เริ่มต้นให้โปร่งใส และมีเงาดำจางๆ ด้านบน (เพื่อให้ตัวหนังสือชัด) */
+
 .main-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    min-height: 100px;
-    display: flex;
-    padding: 10px;
-    align-items: center;
+    padding: 15px 0;
+    /* ไล่สีดำจางๆ ลงมานิดนึง เพื่อให้เมนูอ่านออกแม้ภาพข้างหลังจะเป็นท้องฟ้าสว่างๆ */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    transition: all 0.4s ease;
+    /* เอฟเฟกต์สมูท */
 }
 
+
+/* จัด Layout ข้างใน */
+
 .header-container {
-    width: 90%;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    /* สำคัญ: จัดให้โลโก้กับเมนูตรงกันแนวตั้ง */
     justify-content: space-between;
-    padding: 5px 0;
 }
 
 
@@ -100,54 +153,42 @@ body {
 }
 
 
-/* กล่องด้านขวา = เมนู + ปุ่ม */
-
-.right-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-}
-
-
-/* เมนูด้านขวา */
-
-.main-nav {
-    display: flex;
-    gap: 25px;
-    font-weight: bold;
-}
+/* 3. ปรับตัวหนังสือเมนู (เริ่มแรกสีขาว) */
 
 .main-nav a {
     color: #000000;
+    /* สีขาว */
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    position: relative;
-    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-radius: 30px;
+    transition: all 0.3s;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* ใส่เงาตัวหนังสือให้อ่านง่าย */
 }
 
 
-/* สร้างเส้นที่ซ่อนอยู่ */
+/* 4. เมื่อเลื่อนจอ (Scrolled) เปลี่ยนตัวหนังสือเป็นสีดำ */
 
-.main-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #000;
-    /* สีเส้นขีดเส้นใต้ */
-    transition: all 0.3s ease-in-out;
-    transform: translateX(-50%);
+.main-header.scrolled .main-nav a {
+    color: #333333;
+    text-shadow: none;
 }
 
 
-/* เมื่อ Hover ให้เส้นขยายออก */
+/* เอฟเฟกต์ Hover (ตอนเอาเมาส์ชี้) */
 
-.main-nav a:hover::after {
-    width: 100%;
+.main-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ตอนเลื่อนจอแล้ว Hover ให้พื้นหลังเป็นสีเทาเข้มขึ้นนิดนึง */
+
+.main-header.scrolled .main-nav a:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #000;
 }
 
 
@@ -159,118 +200,175 @@ body {
     gap: 15px;
 }
 
+
+/* --- จัดระเบียบกล่องขวา --- */
+
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* ระยะห่างระหว่าง "เมนูข้อความ" กับ "กลุ่มปุ่มขวาสุด" */
+}
+
+
+/* กล่องรวมปุ่มเครื่องมือ (Tools Wrapper) */
+
+.right-tools {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* ระยะห่างระหว่างปุ่มแต่ละอัน (Search - Lang - Apply) */
+    background: rgba(255, 255, 255, 0.1);
+    /* พื้นหลังจางๆ รองรับทั้งกลุ่ม */
+    padding: 5px 8px;
+    /* เว้นขอบนิดหน่อย */
+    border-radius: 50px;
+    /* ทำเป็นแคปซูลยาวๆ */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* เส้นขอบบางๆ */
+    backdrop-filter: blur(5px);
+}
+
+
+/* เส้นคั่นแนวตั้ง (ระหว่างแว่นขยายกับภาษา) */
+
+.tool-divider {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 5px;
+}
+
+
+/* 1. ปรับปุ่มค้นหา */
+
 .search-btn {
     background: none;
     border: none;
-    color: #333;
-    /* เปลี่ยนสีไอคอนตรงนี้ (ถ้าพื้นหลังมืดให้ใช้ white) */
+    color: #fff;
+    /* สีไอคอนขาว */
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 8px;
     border-radius: 50%;
-    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
 .search-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    /* มีวงกลมจางๆ ขึ้นตอนชี้ */
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
 
-/* --- ปุ่มเปลี่ยนภาษาแบบรูปธง (Flag Style) --- */
+/* 2. ปรับปุ่มเปลี่ยนภาษา (ลดขนาดลงนิดนึงให้พอดี) */
 
 .lang-switch {
     display: flex;
     align-items: center;
-    gap: 15px; /* ระยะห่างระหว่างธง */
-    background: rgba(255, 255, 255, 0.1); /* พื้นหลังจางๆ */
-    padding: 8px 15px;
-    border-radius: 30px; /* ทรงแคปซูล */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
+    gap: 8px;
+    padding: 0 5px;
+    /* เอาพื้นหลังเดิมออก เพราะเรามีพื้นหลังรวมแล้ว */
+    background: none;
+    border: none;
+    backdrop-filter: none;
 }
 
-.lang-option {
-    cursor: pointer;
-    opacity: 0.5; /* ปกติให้จางหน่อย */
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* ปรับขนาดรูปธง */
 .lang-option img {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%; /* ตัดเป็นวงกลม */
+    width: 24px;
+    /* ปรับลดขนาดธงลงนิดนึงให้สมดุล */
+    height: 24px;
+    border-radius: 50%;
     object-fit: cover;
-    border: 2px solid transparent; /* เตรียมขอบไว้สำหรับตอนเลือก */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* ตอนเอาเมาส์ชี้ */
-.lang-option:hover {
-    opacity: 1;
-    transform: scale(1.1); /* ขยายขึ้นนิดนึง */
-}
-
-/* สถานะ Active (ภาษาที่ถูกเลือกอยู่) */
-.lang-option.active {
-    opacity: 1;
-    transform: scale(1.15); /* ขยายใหญ่กว่าเพื่อน */
+    border: 2px solid transparent;
+    transition: all 0.3s;
 }
 
 .lang-option.active img {
-    border: 2px solid #ffffff; /* มีขอบสีขาวล้อมรอบธงที่เลือก */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* เรืองแสง */
+    border: 2px solid #fff;
+    transform: scale(1.15);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 
-/* เอฟเฟกต์ตอนเอาเมาส์ชี้ */
+/* 3. ปรับปุ่มสมัครเรียน (Highlight!) */
+
+.apply-btn {
+    /* ใช้สีทองไล่ระดับ (เข้ากับ Logo มหาลัย) */
+    background: linear-gradient(135deg, #FFD700 0%, #FDB931 100%);
+    color: #2b2b2b;
+    /* ตัวหนังสือสีเข้มตัดกับสีทอง */
+    padding: 10px 24px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 5px;
+    /* เว้นระยะจากธงนิดนึง */
+    box-shadow: 0 4px 15px rgba(253, 185, 49, 0.4);
+    /* เงาสีทองฟุ้งๆ */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* เอฟเฟกต์เด้งดึ๋ง */
+    white-space: nowrap;
+    /* ห้ามตัดคำ */
+}
+
+
+/* เอฟเฟกต์ตอนชี้ปุ่มสมัคร */
 
 .apply-btn:hover {
-    transform: translateY(-2px);
-    /* ลอยขึ้นนิดนึง */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px) scale(1.05);
+    /* ลอยขึ้นและขยาย */
+    box-shadow: 0 8px 20px rgba(253, 185, 49, 0.6);
     /* เงาชัดขึ้น */
-    background: linear-gradient(135deg, #ffffff 0%, #e6e6e6 100%);
+    background: linear-gradient(135deg, #ffe033 0%, #ffc400 100%);
+    /* สีสว่างขึ้น */
 }
-
-
-/* เอฟเฟกต์ตอนกด */
 
 .apply-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95);
 }
 
+
+/* --- เพิ่มเติม: ปรับสีไอคอนเมื่อเลื่อนจอ (Scrolled) --- */
+
+.main-header.scrolled .right-tools {
+    background: rgba(0, 0, 0, 0.05);
+    /* พื้นหลังเข้มขึ้นนิดนึงเมื่ออยู่บนพื้นขาว */
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.main-header.scrolled .search-btn {
+    color: #333;
+    /* ไอคอนค้นหากลับเป็นสีดำ */
+}
+
+.main-header.scrolled .tool-divider {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* เส้นคั่นสีดำ */
+}
 
 
 /* --- แถบเมนูทางลัดแบบ Floating Bar (เหมือน BU) --- */
+
 .bottom-quick-menu {
     position: absolute;
-    bottom: 0;  /* วางไว้ที่เส้นขอบล่างสุด */
+    bottom: 0;
+    /* วางไว้ที่เส้นขอบล่างสุด */
     left: 50%;
-    
     /* แก้บรรทัดนี้: X=-50% (จัดกึ่งกลางแนวนอน), Y=50% (ดันลงมาแนวดิ่งครึ่งกล่อง) */
-    transform: translate(-50%, 50%); 
-    
+    transform: translate(-50%, 50%);
     width: auto;
     max-width: 95%;
-    
     background: rgba(28, 28, 30, 0.95);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    
     /* แก้กลับเป็นมุมมนรอบด้าน เพราะมันลอยออกมาแล้ว */
-    border-radius: 16px; 
-    
+    border-radius: 16px;
     z-index: 500;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* เงาฟุ้งๆ */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* เงาฟุ้งๆ */
     backdrop-filter: blur(10px);
-    
     padding: 5px 0;
     display: flex;
     align-items: center;
@@ -278,105 +376,132 @@ body {
 
 .quick-menu-container {
     display: flex;
-    flex-wrap: nowrap; /* ห้ามปัดตกบรรทัด */
+    flex-wrap: nowrap;
+    /* ห้ามปัดตกบรรทัด */
     align-items: center;
 }
 
 .quick-item {
     display: flex;
     align-items: center;
-    gap: 15px; /* ระยะห่างระหว่างไอคอนกับตัวหนังสือ */
-    padding: 15px 30px; /* ความกว้างของแต่ละช่อง */
+    gap: 15px;
+    /* ระยะห่างระหว่างไอคอนกับตัวหนังสือ */
+    padding: 15px 30px;
+    /* ความกว้างของแต่ละช่อง */
     text-decoration: none;
-    color: #f0f0f0; /* สีขาวเกือบสุด */
+    color: #f0f0f0;
+    /* สีขาวเกือบสุด */
     position: relative;
     transition: all 0.3s ease;
 }
 
+
 /* เส้นคั่นระหว่างเมนู (Divider) */
+
 .quick-item::after {
     content: '';
     position: absolute;
     right: 0;
     top: 20%;
-    height: 60%; /* สูงแค่ 60% ของกล่อง */
+    height: 60%;
+    /* สูงแค่ 60% ของกล่อง */
     width: 1px;
-    background: rgba(255, 255, 255, 0.2); /* สีเส้นจางๆ */
+    background: rgba(255, 255, 255, 0.2);
+    /* สีเส้นจางๆ */
 }
 
+
 /* ลบเส้นคั่นของตัวสุดท้ายออก */
+
 .quick-item:last-child::after {
     display: none;
 }
 
+
 /* ไอคอน */
+
 .quick-icon {
     width: 24px;
     height: 24px;
-    stroke-width: 2px; /* เส้นไอคอนหนาขึ้นนิดนึง */
+    stroke-width: 2px;
+    /* เส้นไอคอนหนาขึ้นนิดนึง */
     opacity: 0.8;
     transition: transform 0.3s ease;
 }
 
+
 /* ตัวหนังสือ */
+
 .quick-item span {
     font-size: 15px;
-    font-weight: 600; /* ตัวหนา */
+    font-weight: 600;
+    /* ตัวหนา */
     line-height: 1.2;
     text-align: left;
-    white-space: nowrap; /* ห้ามตัดคำ */
+    white-space: nowrap;
+    /* ห้ามตัดคำ */
 }
 
+
 /* --- เอฟเฟกต์ Hover (สำคัญมาก เพื่อความสวย) --- */
+
 .quick-item:hover {
-    background: rgba(255, 255, 255, 0.1); /* ไฮไลท์พื้นหลัง */
+    background: rgba(255, 255, 255, 0.1);
+    /* ไฮไลท์พื้นหลัง */
 }
 
 .quick-item:first-child:hover {
-    border-radius: 12px 0 0 12px; /* ถ้าชี้ตัวแรก ให้มุมซ้ายมน */
+    border-radius: 12px 0 0 12px;
+    /* ถ้าชี้ตัวแรก ให้มุมซ้ายมน */
 }
 
 .quick-item:last-child:hover {
-    border-radius: 0 12px 12px 0; /* ถ้าชี้ตัวสุดท้าย ให้มุมขวามน */
+    border-radius: 0 12px 12px 0;
+    /* ถ้าชี้ตัวสุดท้าย ให้มุมขวามน */
 }
 
 .quick-item:hover .quick-icon {
-    transform: scale(1.15); /* ไอคอนขยาย */
+    transform: scale(1.15);
+    /* ไอคอนขยาย */
     opacity: 1;
-    stroke: #fff; /* ไอคอนสีขาวสว่าง */
+    stroke: #fff;
+    /* ไอคอนสีขาวสว่าง */
 }
 
+
 /* --- Responsive บนมือถือ --- */
+
 @media (max-width: 1024px) {
     .bottom-quick-menu {
-        width: 95%; /* บน tablet/mobile ให้กว้างเกือบเต็ม */
+        width: 95%;
+        /* บน tablet/mobile ให้กว้างเกือบเต็ม */
         bottom: 20px;
-        overflow-x: auto; /* ถ้าจอมือถือเล็กมาก ให้เลื่อนซ้ายขวาได้ */
-        justify-content: flex-start; /* เริ่มจากซ้าย */
+        overflow-x: auto;
+        /* ถ้าจอมือถือเล็กมาก ให้เลื่อนซ้ายขวาได้ */
+        justify-content: flex-start;
+        /* เริ่มจากซ้าย */
         border-radius: 12px;
     }
-    
     .quick-menu-container {
         width: 100%;
     }
-    
     .quick-item {
         padding: 15px 20px;
-        flex: 1 0 auto; /* ให้ขยายได้ตามเนื้อหา */
+        flex: 1 0 auto;
+        /* ให้ขยายได้ตามเนื้อหา */
     }
 }
+
 
 /* --- ส่วนเนื้อหาข่าวสาร (News Section) --- */
 
 .news-section {
     position: relative;
     width: 100%;
-    background-color: #121212; /* สีพื้นหลังดำด้าน (Dark Theme) */
+    background-color: #121212;
     color: #ffffff;
-    
-    /* !!! สำคัญมาก: ต้องเว้นระยะด้านบน เพื่อไม่ให้เมนูที่ลอยอยู่บังเนื้อหา !!! */
-    /* เมนูสูงประมาณ 60-80px และลอยลงมาครึ่งนึง ดังนั้นต้องเผื่อไว้อย่างน้อย 100px */
-    padding-top: 120px; 
+    /* แก้จาก 120px เป็น 80px หรือ 60px ก็พอครับ เพราะไม่มีเมนูมาบังแล้ว */
+    padding-top: 80px;
     padding-bottom: 80px;
 }
 
@@ -386,7 +511,9 @@ body {
     padding: 0 20px;
 }
 
+
 /* หัวข้อ */
+
 .section-header {
     margin-bottom: 40px;
 }
@@ -407,14 +534,20 @@ body {
     font-weight: 400;
 }
 
+
 /* จัด Layout ข่าวแบบ Grid (2 คอลัมน์) */
+
 .news-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* แบ่งครึ่งซ้ายขวาเท่ากัน */
-    gap: 40px; /* ระยะห่างระหว่างกล่องข่าว */
+    grid-template-columns: 1fr 1fr;
+    /* แบ่งครึ่งซ้ายขวาเท่ากัน */
+    gap: 40px;
+    /* ระยะห่างระหว่างกล่องข่าว */
 }
 
+
 /* การ์ดข่าว */
+
 .news-card {
     background: transparent;
     border-radius: 12px;
@@ -425,15 +558,19 @@ body {
 }
 
 .news-card:hover {
-    transform: translateY(-10px); /* ลอยขึ้นเมื่อเอาเมาส์ชี้ */
+    transform: translateY(-10px);
+    /* ลอยขึ้นเมื่อเอาเมาส์ชี้ */
 }
 
+
 /* ส่วนรูปภาพ */
+
 .news-image-wrapper {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 16/9; /* บังคับสัดส่วนภาพให้เท่ากัน */
+    aspect-ratio: 16/9;
+    /* บังคับสัดส่วนภาพให้เท่ากัน */
     margin-bottom: 20px;
 }
 
@@ -445,10 +582,13 @@ body {
 }
 
 .news-card:hover .news-img {
-    transform: scale(1.05); /* ขยายภาพนิดนึงตอนชี้ */
+    transform: scale(1.05);
+    /* ขยายภาพนิดนึงตอนชี้ */
 }
 
+
 /* ป้าย Tag บนรูป */
+
 .news-tag {
     position: absolute;
     top: 15px;
@@ -462,10 +602,19 @@ body {
     z-index: 2;
 }
 
-.news-tag.new { background-color: #e50914; /* สีแดง */ }
-.news-tag.highlight { background-color: #007bff; /* สีน้ำเงิน */ }
+.news-tag.new {
+    background-color: #e50914;
+    /* สีแดง */
+}
+
+.news-tag.highlight {
+    background-color: #007bff;
+    /* สีน้ำเงิน */
+}
+
 
 /* เนื้อหาข่าว */
+
 .news-date {
     font-size: 14px;
     color: #666;
@@ -483,7 +632,8 @@ body {
 }
 
 .news-card:hover .news-headline {
-    color: #00c6ff; /* เปลี่ยนสีหัวข้อเมื่อชี้ทั้งการ์ด */
+    color: #00c6ff;
+    /* เปลี่ยนสีหัวข้อเมื่อชี้ทั้งการ์ด */
 }
 
 .news-excerpt {
@@ -491,7 +641,6 @@ body {
     color: #b0b0b0;
     line-height: 1.6;
     margin-bottom: 20px;
-    
     /* ตัดคำถ้ายาวเกิน 3 บรรทัด */
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -515,31 +664,40 @@ body {
     opacity: 1;
 }
 
+
 /* Responsive มือถือ */
+
 @media (max-width: 768px) {
     .news-grid {
-        grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์บนมือถือ */
+        grid-template-columns: 1fr;
+        /* เปลี่ยนเป็น 1 คอลัมน์บนมือถือ */
     }
-    
     .news-section {
-        padding-top: 100px; /* ปรับระยะห่างบนมือถือ */
+        padding-top: 100px;
+        /* ปรับระยะห่างบนมือถือ */
     }
 }
+
 
 /* --- แถบปุ่ม "อ่านข่าวทั้งหมด" (View All Bar) --- */
 
 .view-all-bar {
     display: flex;
-    justify-content: space-between; /* ตัวหนังสือซ้าย ลูกศรขวา */
+    justify-content: space-between;
+    /* ตัวหนังสือซ้าย ลูกศรขวา */
     align-items: center;
-    background-color: #1c1c1e; /* สีพื้นหลังเทาเข้มเกือบดำ */
+    background-color: #1c1c1e;
+    /* สีพื้นหลังเทาเข้มเกือบดำ */
     padding: 25px 30px;
-    margin-top: 50px; /* ระยะห่างจากข่าวชุดบน */
-    border-radius: 8px; /* มุมมนเล็กน้อย */
+    margin-top: 50px;
+    /* ระยะห่างจากข่าวชุดบน */
+    border-radius: 8px;
+    /* มุมมนเล็กน้อย */
     text-decoration: none;
     color: #ffffff;
     transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05); /* เส้นขอบจางๆ เพิ่มมิติ */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* เส้นขอบจางๆ เพิ่มมิติ */
 }
 
 .view-all-text {
@@ -554,17 +712,23 @@ body {
     transition: transform 0.3s ease;
 }
 
+
 /* เอฟเฟกต์ตอนเอาเมาส์ชี้แถบนี้ */
+
 .view-all-bar:hover {
-    background-color: #2c2c2e; /* สีสว่างขึ้นนิดนึง */
+    background-color: #2c2c2e;
+    /* สีสว่างขึ้นนิดนึง */
     border-color: rgba(255, 255, 255, 0.2);
 }
 
 .view-all-bar:hover .view-all-icon {
-    transform: translateX(10px); /* ลูกศรพุ่งไปทางขวา */
+    transform: translateX(10px);
+    /* ลูกศรพุ่งไปทางขวา */
 }
 
+
 /* Responsive มือถือ */
+
 @media (max-width: 768px) {
     .view-all-bar {
         padding: 20px;
@@ -572,5 +736,1310 @@ body {
     }
     .view-all-text {
         font-size: 16px;
+    }
+}
+
+
+/* --- ส่วนแนะนำหลักสูตร (Curriculum Banner) --- */
+
+.curriculum-banner {
+    background-color: #121212;
+    /* พื้นหลังสีดำเข้ม */
+    padding: 50pxs 0;
+    position: relative;
+    overflow: hidden;
+    /* ตัดส่วนกราฟิกที่ล้นออก */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.banner-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+
+/* --- ฝั่งข้อความ --- */
+
+.banner-text {
+    flex: 1;
+    /* กินพื้นที่ครึ่งหนึ่ง */
+    z-index: 2;
+    /* อยู่ชั้นบน */
+}
+
+.banner-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.banner-title .highlight-text {
+    color: #ffffff;
+    display: block;
+    /* ขึ้นบรรทัดใหม่ */
+}
+
+.banner-desc {
+    font-size: 16px;
+    color: #b0b0b0;
+    /* สีเทาอ่านง่าย */
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.banner-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+/* --- ฝั่งกราฟิก (วาดรูปเองด้วย CSS) --- */
+
+.banner-visuals {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* วงกลมเขียวใหญ่ */
+
+.shape-green {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: #00a651;
+    /* สีเขียวตามแบบ */
+    border-radius: 50%;
+    left: 20%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+
+/* วงกลมเขียวเล็ก (ซ้อน) */
+
+.shape-green-small {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: #008c44;
+    /* เขียวเข้มขึ้น */
+    border-radius: 50%;
+    left: 10%;
+    bottom: 10%;
+    z-index: 0;
+}
+
+
+/* การ์ดสีขาว */
+
+.floating-card {
+    position: absolute;
+    width: 220px;
+    height: 160px;
+    background-color: #ecf0f1;
+    /* สีขาวเทาๆ */
+    border-radius: 4px;
+    right: 15%;
+    top: 30%;
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+    /* เงาลอย */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    z-index: 5;
+    animation: floatCard 6s ease-in-out infinite;
+    /* ใส่ Animation ให้ลอยไปมาได้ */
+}
+
+
+/* เส้นขีดๆ ในการ์ด */
+
+.card-line {
+    height: 8px;
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.card-line.long {
+    width: 100%;
+}
+
+.card-line.medium {
+    width: 70%;
+}
+
+.card-line.short {
+    width: 40%;
+}
+
+
+/* สามเหลี่ยมสีเหลือง */
+
+.shape-yellow {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid #FFD700;
+    transform: rotate(25deg);
+}
+
+
+/* อนิเมชั่นลอยเบาๆ */
+
+@keyframes floatCard {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* Responsive มือถือ */
+
+@media (max-width: 768px) {
+    .banner-layout {
+        flex-direction: column;
+        /* เรียงลงแนวตั้ง */
+        text-align: center;
+    }
+    .banner-desc {
+        margin: 0 auto 30px auto;
+    }
+    .banner-visuals {
+        width: 100%;
+        height: 300px;
+        transform: scale(0.8);
+        /* ย่อกราฟิกลงหน่อย */
+    }
+}
+
+.banner-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+
+/* --- ฝั่งข้อความ --- */
+
+.banner-text-content {
+    flex: 1;
+    z-index: 2;
+    padding-right: 20px;
+}
+
+.banner-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.banner-title .highlight-text {
+    color: #ffffff;
+    display: block;
+}
+
+.banner-desc {
+    font-size: 16px;
+    color: #b0b0b0;
+    line-height: 1.8;
+    max-width: 500px;
+    margin-bottom: 35px;
+}
+
+.banner-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+
+/* --- ฝั่งกราฟิก (วาดด้วย CSS) --- */
+
+.banner-visuals {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* วงกลมเขียวใหญ่ */
+
+.shape-green {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background-color: #00a651;
+    /* สีเขียว */
+    border-radius: 50%;
+    left: 15%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.9;
+}
+
+
+/* วงกลมเขียวเล็ก */
+
+.shape-green-small {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background-color: #008c44;
+    /* เขียวเข้ม */
+    border-radius: 50%;
+    left: 5%;
+    bottom: 5%;
+    z-index: 0;
+}
+
+
+/* การ์ดสีขาว */
+
+.floating-card {
+    position: absolute;
+    width: 240px;
+    height: 170px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    right: 15%;
+    top: 25%;
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    z-index: 5;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+.card-line {
+    height: 8px;
+    background-color: #555;
+    border-radius: 4px;
+}
+
+.card-line.long {
+    width: 100%;
+}
+
+.card-line.medium {
+    width: 70%;
+}
+
+.card-line.short {
+    width: 40%;
+}
+
+.shape-yellow {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid #FFD700;
+    transform: rotate(25deg);
+}
+
+@keyframes floatCard {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+
+/* Responsive มือถือ */
+
+@media (max-width: 900px) {
+    .banner-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-text-content {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    .banner-desc {
+        margin: 0 auto 30px auto;
+    }
+    .banner-visuals {
+        transform: scale(0.8);
+    }
+}
+
+
+/* --- ส่วนปริญญาตรี (Bachelor's Degree Section) --- */
+
+.bachelor-degree-section {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    /* กำหนดความสูงของส่วนนี้ */
+    overflow: hidden;
+    margin-bottom: 50px;
+    /* เว้นระยะห่างจากส่วนข่าวสาร */
+}
+
+.bachelor-bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    /* ให้ภาพเต็มพื้นที่ */
+    background-position: center;
+    /* จัดภาพกึ่งกลาง */
+    position: relative;
+}
+
+
+/* เพิ่ม Overlay สีดำไล่ระดับ เพื่อให้ตัวหนังสืออ่านง่ายและดูมีมิติ */
+
+.bachelor-bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ไล่สีดำจากบนลงล่าง */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.bachelor-content {
+    position: relative;
+    z-index: 2;
+    /* ให้อยู่เหนือ Overlay */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* ดันหัวข้อไปบนสุด คำอธิบายมาล่างสุด */
+    padding: 50px 20px;
+    /* ระยะห่างขอบใน */
+    color: #ffffff;
+    /* ตัวหนังสือสีขาว */
+}
+
+.bachelor-header {
+    margin-top: 20px;
+}
+
+.bachelor-title {
+    font-size: 56px;
+    /* ขนาดหัวข้อใหญ่ */
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* เงาตัวหนังสือ */
+}
+
+.bachelor-subtitle {
+    font-size: 28px;
+    /* ขนาดหัวข้อรอง */
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+    opacity: 0.9;
+    /* ให้จางลงนิดนึง */
+    letter-spacing: 1px;
+}
+
+.bachelor-desc {
+    font-size: 22px;
+    /* ขนาดคำอธิบายด้านล่าง */
+    font-weight: 500;
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --- Responsive มือถือ --- */
+
+@media (max-width: 768px) {
+    .bachelor-degree-section {
+        height: 350px;
+        /* ลดความสูงบนมือถือ */
+    }
+    .bachelor-content {
+        padding: 30px 20px;
+    }
+    .bachelor-title {
+        font-size: 42px;
+    }
+    .bachelor-subtitle {
+        font-size: 22px;
+    }
+    .bachelor-desc {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================
+   ส่วนระดับการศึกษา (Degree Levels) - แก้ไขตำแหน่งแล้ว
+   ========================================= */
+
+.degree-levels-section {
+    background-color: #121212;
+    padding: 60px 0 80px 0;
+}
+
+.degree-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* แบ่ง 2 คอลัมน์ */
+    grid-template-rows: auto auto;
+    /* สูงตามเนื้อหา ไม่ฟิกซ์ตายตัว */
+    gap: 20px;
+}
+
+
+/* --- การ์ดใบใหญ่ (ปริญญาตรี) --- */
+
+.large-card {
+    grid-column: 1 / -1;
+    /* กินพื้นที่เต็มซ้ายขวา */
+    height: 400px;
+}
+
+
+/* --- การ์ดใบเล็ก (เทียบโอน / ป.โท) --- */
+
+.degree-card:not(.large-card) {
+    height: 300px;
+}
+
+
+/* --- สไตล์พื้นฐานของการ์ด --- */
+
+.degree-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    isolation: isolate;
+}
+
+
+/* รูปพื้นหลัง */
+
+.degree-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+}
+
+.degree-card:hover .degree-bg {
+    transform: scale(1.08);
+    /* ซูมภาพตอนชี้ */
+}
+
+
+/* เงาดำไล่ระดับ (Overlay) - ปรับใหม่ให้เข้มจาก "ข้างบน" */
+
+.degree-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ไล่สีดำจากบนลงล่าง เพื่อให้ตัวหนังสือสีขาวอ่านออก */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+    z-index: 1;
+}
+
+
+/* กล่องข้อความ - แก้ไขให้ดันขึ้นบน */
+
+.degree-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* จุดสำคัญที่แก้: เปลี่ยนจาก flex-end (ล่าง) เป็น flex-start (บน) */
+    justify-content: flex-start;
+    padding: 30px;
+    /* ระยะห่างจากขอบ */
+}
+
+.degree-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+}
+
+.degree-card:hover .degree-title {
+    color: #FFD700;
+    /* สีทองตอนชี้ */
+}
+
+.degree-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 5px;
+    display: block;
+}
+
+.degree-desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-top: 15px;
+    max-width: 600px;
+    opacity: 0.8;
+    border-left: 3px solid #FFD700;
+    padding-left: 10px;
+}
+
+
+/* --- Responsive มือถือ --- */
+
+@media (max-width: 768px) {
+    .degree-grid {
+        grid-template-columns: 1fr;
+    }
+    .large-card,
+    .degree-card:not(.large-card) {
+        height: 250px;
+        /* ลดความสูงในมือถือ */
+    }
+    .degree-title {
+        font-size: 24px;
+    }
+    .degree-content {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================
+   ส่วนระดับการศึกษา (Degree Levels) - แก้ไขตำแหน่งแล้ว
+   ========================================= */
+
+.degree-levels-section {
+    background-color: #121212;
+    padding: 60px 0 80px 0;
+}
+
+.degree-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* แบ่ง 2 คอลัมน์ */
+    grid-template-rows: auto auto;
+    /* สูงตามเนื้อหา ไม่ฟิกซ์ตายตัว */
+    gap: 20px;
+}
+
+
+/* --- การ์ดใบใหญ่ (ปริญญาตรี) --- */
+
+.large-card {
+    grid-column: 1 / -1;
+    /* กินพื้นที่เต็มซ้ายขวา */
+    height: 400px;
+}
+
+
+/* --- การ์ดใบเล็ก (เทียบโอน / ป.โท) --- */
+
+.degree-card:not(.large-card) {
+    height: 300px;
+}
+
+
+/* --- สไตล์พื้นฐานของการ์ด --- */
+
+.degree-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    isolation: isolate;
+}
+
+
+/* รูปพื้นหลัง */
+
+.degree-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 0;
+}
+
+.degree-card:hover .degree-bg {
+    transform: scale(1.08);
+    /* ซูมภาพตอนชี้ */
+}
+
+
+/* เงาดำไล่ระดับ (Overlay) - ปรับใหม่ให้เข้มจาก "ข้างบน" */
+
+.degree-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* ไล่สีดำจากบนลงล่าง เพื่อให้ตัวหนังสือสีขาวอ่านออก */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+    z-index: 1;
+}
+
+
+/* กล่องข้อความ - แก้ไขให้ดันขึ้นบน */
+
+.degree-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* จุดสำคัญที่แก้: เปลี่ยนจาก flex-end (ล่าง) เป็น flex-start (บน) */
+    justify-content: flex-start;
+    padding: 30px;
+    /* ระยะห่างจากขอบ */
+}
+
+.degree-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s;
+}
+
+.degree-card:hover .degree-title {
+    color: #FFD700;
+    /* สีทองตอนชี้ */
+}
+
+.degree-subtitle {
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-top: 5px;
+    display: block;
+}
+
+.degree-desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: #e0e0e0;
+    margin-top: 15px;
+    max-width: 600px;
+    opacity: 0.8;
+    border-left: 3px solid #FFD700;
+    padding-left: 10px;
+}
+
+
+/* --- Responsive มือถือ --- */
+
+@media (max-width: 768px) {
+    .degree-grid {
+        grid-template-columns: 1fr;
+    }
+    .large-card,
+    .degree-card:not(.large-card) {
+        height: 250px;
+        /* ลดความสูงในมือถือ */
+    }
+    .degree-title {
+        font-size: 24px;
+    }
+    .degree-content {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================
+   ส่วนรถไฟฟ้า BTS (Skytrain Animation)
+   ========================================= */
+
+.skytrain-container {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    /* ความสูงของโซนนี้ */
+    background-color: #edffec;
+    /* หรือจะใสก็ได้ครับ */
+    overflow: hidden;
+    /* ห้ามให้รถไฟวิ่งทะลุจอจนเกิด Scrollbar */
+    margin-top: 0px;
+    /* เว้นระยะห่างจากเนื้อหาด้านบน */
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- 1. ตัวรถไฟฟ้า --- */
+
+.bts-train {
+    position: absolute;
+    bottom: 40px;
+    width: 500px;
+    height: auto;
+    z-index: 5;
+    animation: trainMove 20s linear infinite;
+    /* ปรับให้วิ่งช้าลงนิดนึงจะได้ดูสมจริง (20s) */
+}
+
+
+/* คีย์เฟรมการเคลื่อนที่ */
+
+@keyframes trainMove {
+    0% {
+        transform: translateX(100vw);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+    /* วิ่งให้พ้นจอไปไกลหน่อย */
+}
+
+
+/* --- 2. รางรถไฟ --- */
+
+.sky-track {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    height: 18px;
+    background-color: #b0b5bd;
+    /* ปรับสีรางให้สว่างขึ้นนิดนึง เพื่อให้เด่นบนพื้นดำ */
+    border-top: 3px solid #8e949e;
+    border-bottom: 3px solid #757b85;
+    z-index: 4;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    /* เพิ่มเงาใต้รางให้ดูลอยๆ */
+}
+
+
+/* --- 3. เสาตอม่อ --- */
+
+.sky-pillars {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 3;
+    /* ปรับสีเสาให้เข้มขึ้นนิดนึง ให้เข้ากับตีมมืด */
+    background-image: linear-gradient(90deg, #555 0%, #555 15%, transparent 15%, transparent 100%);
+    background-size: 120px 100%;
+    background-repeat: repeat-x;
+    opacity: 0.5;
+    /* ให้เสาดูจางๆ อยู่ในเงามืด */
+}
+
+
+/* --- 4. พุ่มไม้ --- */
+
+.bushes {
+    position: absolute;
+    bottom: -15px;
+    width: 100%;
+    height: 40px;
+    z-index: 6;
+    /* ปรับสีเขียวให้ดูมืดลงนิดนึง (Dark Green) จะได้ไม่โดดเกินไป */
+    background: radial-gradient(circle, #2e7d32 60%, transparent 70%);
+    background-size: 60px 60px;
+    background-repeat: repeat-x;
+    opacity: 0.8;
+}
+
+
+/* --- Responsive มือถือ --- */
+
+@media (max-width: 768px) {
+    .skytrain-container {
+        height: 120px;
+    }
+    .bts-train {
+        width: 180px;
+        bottom: 35px;
+    }
+    .sky-track {
+        height: 14px;
+        bottom: 20px;
+    }
+    .sky-pillars {
+        height: 20px;
+    }
+}
+
+
+/* =========================================
+   ส่วนท้ายเว็บ (Footer)
+   ========================================= */
+
+.main-footer {
+    background-color: #3d3d3d;
+    /* พื้นหลังสีเทาเข้ม */
+    color: #e0e0e0;
+    /* ตัวหนังสือสีขาวหม่น */
+    padding: 60px 0 30px 0;
+    font-size: 14px;
+}
+
+.footer-widgets {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* แบ่ง 4 คอลัมน์ */
+    gap: 40px;
+}
+
+
+/* หัวข้อ Footer */
+
+.footer-title {
+    color: #f391b2;
+    /* สีชมพู (ตามรูปตัวอย่าง) */
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.mt-4 {
+    margin-top: 30px;
+}
+
+
+/* เว้นระยะสำหรับหัวข้อย่อย */
+
+
+/* ลิงก์ต่างๆ */
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+
+/* --- โซนติดต่อเรา (Contact) --- */
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+
+/* ปุ่มรับข้อเสนอแนะ */
+
+.feedback-btn {
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+}
+
+.feedback-btn:hover {
+    background-color: #777;
+}
+
+
+/* Social Icons (วงกลม) */
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.sc-icon {
+    width: 36px;
+    height: 36px;
+    background-color: #555;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    transition: all 0.3s;
+}
+
+.sc-icon:hover {
+    background-color: #e91e63;
+    /* ชี้แล้วเป็นสีชมพู */
+    transform: translateY(-3px);
+}
+
+.sc-icon.facebook:hover {
+    background-color: #1877f2;
+}
+
+.sc-icon.twitter:hover {
+    background-color: #000;
+}
+
+.sc-icon.youtube:hover {
+    background-color: #ff0000;
+}
+
+.sc-icon.instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+
+/* Policy & Copyright */
+
+.footer-policy p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* Responsive มือถือ */
+
+@media (max-width: 900px) {
+    .footer-widgets {
+        grid-template-columns: 1fr 1fr;
+        /* เหลือ 2 คอลัมน์ */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-widgets {
+        grid-template-columns: 1fr;
+        /* เหลือ 1 คอลัมน์ */
+    }
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN (มือถือ & แท็บเล็ต)
+   ========================================= */
+
+
+/* --- ซ่อนเมนูมือถือไว้ก่อนในหน้าจอคอม --- */
+
+.hamburger-menu {
+    display: none;
+    /* ซ่อนปุ่ม 3 ขีด */
+}
+
+.mobile-menu-overlay {
+    display: none;
+    /* ซ่อนหน้าต่างเมนู */
+}
+
+
+/* =========================================
+   Tablet & Mobile (หน้าจอเล็กกว่า 1024px) 
+   ========================================= */
+
+@media (max-width: 1024px) {
+    /* 1. ส่วน Header */
+    .desktop-nav {
+        display: none;
+        /* ซ่อนเมนูยาวๆ ของคอมทิ้งไป */
+    }
+    .hamburger-menu {
+        display: block;
+        /* โชว์ปุ่ม 3 ขีด */
+        background: none;
+        border: none;
+        color: #fff;
+        /* สีขาว (หรือดำ ถ้า header เป็นสีขาว) */
+        font-size: 24px;
+        cursor: pointer;
+        padding-left: 10px;
+    }
+    /* ถ้า header เลื่อนลงมา (สีขาว) ให้ปุ่มเป็นสีดำ */
+    .main-header.scrolled .hamburger-menu {
+        color: #333;
+    }
+    /* ปรับโลโก้ให้เล็กลงหน่อย */
+    .logo-section .logo {
+        height: 40px;
+        /* ลดขนาดโลโก้ */
+        margin-left: 15px;
+    }
+    /* ลดขนาดปุ่มขวา */
+    .right-tools {
+        gap: 8px;
+        padding: 4px;
+    }
+    .apply-btn {
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+    .search-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+    /* 2. ดีไซน์หน้าต่างเมนูมือถือ (Slide จากขวา) */
+    .mobile-menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* ซ่อนไว้ทางขวา */
+        width: 80%;
+        /* กว้าง 80% ของจอ */
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        z-index: 2000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        /* เอฟเฟกต์เลื่อน */
+        padding: 20px;
+        backdrop-filter: blur(10px);
+    }
+    .mobile-menu-overlay.active {
+        right: 0;
+        /* เลื่อนออกมาโชว์ */
+    }
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    .mobile-menu-title {
+        font-family: 'Prompt', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+    }
+    .close-menu-btn {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #333;
+    }
+    .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .mobile-menu-links a {
+        font-family: 'Prompt', sans-serif;
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    /* 3. ส่วน Banner & Hero */
+    .hero-slider {
+        height: 100vh;
+        /* เต็มจอเหมือนเดิม */
+    }
+    /* 4. Quick Menu (เมนูลอยล่าง) */
+    .bottom-quick-menu {
+        width: 95%;
+        bottom: 20px;
+        transform: translate(-50%, 0);
+        /* ไม่ต้องดันแกน Y */
+        overflow-x: auto;
+        /* เลื่อนแนวนอนได้ */
+        justify-content: flex-start;
+        /* เริ่มจากซ้าย */
+        padding: 10px;
+    }
+    .quick-item {
+        flex: 0 0 auto;
+        /* ไม่บีบอัดไอคอน */
+        padding: 10px 15px;
+    }
+}
+
+
+/* =========================================
+   Mobile Only (หน้าจอเล็กกว่า 768px - มือถือ)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* ซ่อนปุ่มเปลี่ยนภาษา หรือ Search ถ้าที่มันแน่นเกินไป */
+    /* .search-btn { display: none; } */
+    /* 1. ส่วนหลักสูตร (ดำ-เขียว) */
+    .banner-layout {
+        flex-direction: column;
+        /* เรียงลงแนวตั้ง */
+        text-align: center;
+        gap: 30px;
+    }
+    .banner-text-content {
+        padding-right: 0;
+    }
+    .banner-title {
+        font-size: 32px;
+        /* ลดขนาดหัวข้อ */
+    }
+    .banner-visuals {
+        width: 100%;
+        height: 250px;
+        /* ลดความสูงกราฟิก */
+        transform: scale(0.8);
+    }
+    /* 2. ส่วนปริญญา (Grid) */
+    .degree-grid {
+        grid-template-columns: 1fr;
+        /* เรียงแถวเดียว */
+    }
+    .large-card,
+    .degree-card:not(.large-card) {
+        height: 250px;
+        /* ลดความสูงการ์ด */
+    }
+    .degree-title {
+        font-size: 24px;
+    }
+    /* 3. ส่วนข่าวสาร */
+    .news-grid {
+        grid-template-columns: 1fr;
+        /* ข่าวเรียงลงมา */
+    }
+    .section-title {
+        font-size: 28px;
+    }
+    /* 4. รถไฟฟ้า */
+    .skytrain-container {
+        height: 100px;
+        /* เล็กลง */
+    }
+    .bts-train {
+        width: 250px;
+        /* รถไฟเล็กลง */
+        bottom: 30px;
+    }
+    /* 5. Footer */
+    .footer-widgets {
+        grid-template-columns: 1fr;
+        /* เรียงเป็นแถวเดียว */
+        text-align: center;
+        /* จัดกลางสวยๆ */
+        gap: 30px;
+    }
+    .footer-title {
+        display: inline-block;
+        /* เส้นขีดใต้จะพอดีคำ */
+    }
+    .contact-list li {
+        justify-content: center;
+        /* ไอคอนอยู่กลาง */
+    }
+    .social-icons {
+        justify-content: center;
     }
 }

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>มหาลัยจีนีมิ ⎸GENIMI UNIVERSITY</title>
 </head>
@@ -18,145 +19,399 @@
 
             <div class="right-section">
                 <nav class="main-nav">
-                    <a href="#" id="nav-course">หลักสูตร</a>
-                    <a href="#" id="nav-schedule">ตารางเรียน69</a>
-                    <a href="#" id="nav-news">ข่าวสาร</a>
-                    <a href="#" id="nav-about">เกี่ยวกับมหาวิทยาลัย</a>
+                    <nav class="main-nav desktop-nav"> <a href="#" id="nav-course">หลักสูตร</a>
+                        <a href="#" id="nav-course">หลักสูตร</a>
+                        <a href="#" id="nav-schedule">ตารางเรียน69</a>
+                        <a href="#" id="nav-news">ข่าวสาร</a>
+                        <a href="#" id="nav-about">เกี่ยวกับมหาวิทยาลัย</a>
+                    </nav>
                 </nav>
-                <button class="search-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-    </svg>
-</button>
 
-                <div class="lang-switch">
-    <div id="lang-th" class="lang-option active" onclick="setLanguage('th')">
-        <img src="https://flagcdn.com/w80/th.png" alt="Thai">
-    </div>
-    <div id="lang-en" class="lang-option" onclick="setLanguage('en')">
-        <img src="https://flagcdn.com/w80/gb.png" alt="English">
-    </div>
-</div>
+                <div class="right-tools">
+                    <button class="search-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </button>
 
-                <button class="apply-btn" id="btn-apply">สมัครเรียน</button>
+                    <div class="tool-divider"></div>
+
+                    <div class="lang-switch">
+                        <div id="lang-th" class="lang-option active" onclick="setLanguage('th')">
+                            <img src="https://flagcdn.com/w80/th.png" alt="Thai">
+                        </div>
+                        <div id="lang-en" class="lang-option" onclick="setLanguage('en')">
+                            <img src="https://flagcdn.com/w80/gb.png" alt="English">
+                        </div>
+                    </div>
+
+                    <button class="apply-btn" id="btn-apply">สมัครเรียน</button>
+                    <button class="hamburger-menu" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                     </button>
+
+                </div>
             </div>
         </div>
-        </div>
     </header>
+
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title">เมนู</span>
+            <button class="close-menu-btn" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        </div>
+        <div class="mobile-menu-links">
+            <a href="#" onclick="toggleMobileMenu()" id="mob-nav-course">หลักสูตร</a>
+            <a href="#" onclick="toggleMobileMenu()" id="mob-nav-schedule">ตารางเรียน69</a>
+            <a href="#" onclick="toggleMobileMenu()" id="mob-nav-news">ข่าวสาร</a>
+            <a href="#" onclick="toggleMobileMenu()" id="mob-nav-about">เกี่ยวกับมหาวิทยาลัย</a>
+        </div>
+    </div>
 
     <div class="hero-slider">
         <div class="slide" style="background-image: url('Pictures/1.jpg');"></div>
         <div class="slide" style="background-image: url('Pictures/2.jpg');"></div>
-        
+
         <div class="bottom-quick-menu">
-    <div class="quick-menu-container">
-        <a href="#" class="quick-item">
-            <span id="q-course">หลักสูตร</span>
-        </a>
-        <a href="#" class="quick-item">
-            <span id="q-inter">International<br>Programs</span>
-        </a>
-        <a href="#" class="quick-item">
-            <span id="q-tuition">ค่าเล่าเรียน</span>
-        </a>
-        <a href="#" class="quick-item">
-            <span id="q-apply">ข้อมูลสมัคร<br>เรียน</span>
-        </a>
-        <a href="#" class="quick-item">
-             <span id="q-scholar">ทุนการศึกษา</span>
-        </a>
-        <a href="#" class="quick-item">
-             <span id="q-loan">กู้ยืม กยศ.</span>
-        </a>
-        <a href="#" class="quick-item">
-             <span id="q-calendar">ปฏิทินการ<br>ศึกษา</span>
-        </a>
-    </div>
-</div>
+            <div class="quick-menu-container">
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-course">หลักสูตร</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-inter">International<br>Programs</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                    <line x1="12" y1="18" x2="12" y2="22"></line>
+                    <line x1="12" y1="2" x2="12" y2="6"></line>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-tuition">ค่าเล่าเรียน</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-apply">ข้อมูลสมัคร<br>เรียน</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-scholar">ทุนการศึกษา</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M20 7h-4v-4c0-1.104-.896-2-2-2h-4c-1.104 0-2 .896-2 2v4h-4c-1.104 0-2 .896-2 2v11c0 1.104.896 2 2 2h16c1.104 0 2-.896 2-2v-11c0-1.104-.896-2-2-2z"></path>
+                    <path d="M12 12c1.104 0 2 .896 2 2s-.896 2-2 2-2-.896-2-2 .896-2 2-2z"></path>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-loan">กู้ยืม กยศ.</span>
+                    </div>
+                </a>
+
+                <a href="#" class="quick-item">
+                    <svg class="quick-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                    <div class="quick-text">
+                        <span id="q-calendar">ปฏิทินการ<br>ศึกษา</span>
+                    </div>
+                </a>
+
+            </div>
         </div>
     </div>
-    </div> 
+    </div>
 
     <section class="news-section">
-    <div class="content-container">
-        
-        <div class="section-header">
-            <h2 class="section-title" id="news-header-title">ข่าวสารและบทความ</h2>
-            <span class="section-subtitle" id="news-header-sub">ข่าวสารมหาวิทยาลัย</span>
-        </div>
+        <div class="content-container">
 
-        <div class="news-grid">
-            
-            <article class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="https://www.expedia.co.th/stories/wp-content/uploads/2022/07/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%AA%E0%B8%A7%E0%B8%A2-26.jpg" alt="News 1" class="news-img">
-                    <span class="news-tag new" id="tag-1">หลักสูตรใหม่</span>
-                </div>
-                <div class="news-content">
-                    <span class="news-date">4/12/2025</span>
-                    <h3 class="news-headline" id="news-1-title">Virtual Production and Immersive Experience Design อนาคตของวงการภาพยนตร์ระดับโลก</h3>
-                    <p class="news-excerpt" id="news-1-desc">อยากสร้างภาพยนตร์เจ๋งๆ ในฉากสุดล้ำที่เหนือจินตนาการ หรือปั้นคอนเทนต์เสมือนจริง คณะดิจิทัลมีเดียและศิลปะภาพยนตร์...</p>
-                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
-                </div>
-            </article>
+            <div class="section-header">
+                <h2 class="section-title" id="news-header-title">ข่าวสารและบทความ</h2>
+                <span class="section-subtitle" id="news-header-sub">ข่าวสารมหาวิทยาลัย</span>
+            </div>
 
-            <article class="news-card">
-                <div class="news-image-wrapper">
+            <div class="news-grid">
+
+                <article class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="https://www.expedia.co.th/stories/wp-content/uploads/2022/07/%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%A7%E0%B8%B4%E0%B8%A7%E0%B8%AA%E0%B8%A7%E0%B8%A2-26.jpg" alt="News 1" class="news-img">
+                        <span class="news-tag new" id="tag-1">หลักสูตรใหม่</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">4/12/2025</span>
+                        <h3 class="news-headline" id="news-1-title">Virtual Production and Immersive Experience Design อนาคตของวงการภาพยนตร์ระดับโลก</h3>
+                        <p class="news-excerpt" id="news-1-desc">อยากสร้างภาพยนตร์เจ๋งๆ ในฉากสุดล้ำที่เหนือจินตนาการ หรือปั้นคอนเทนต์เสมือนจริง คณะดิจิทัลมีเดียและศิลปะภาพยนตร์...</p>
+                        <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="news-card">
+                    <div class="news-image-wrapper">
                         <img src="https://mthai.com/app/uploads/2021/08/universitythai2.jpg" alt="News 2" class="news-img">
-                    <span class="news-tag highlight">New Community!</span>
-                </div>
-                <div class="news-content">
-                    <span class="news-date">4/12/2025</span>
-                    <h3 class="news-headline" id="news-2-title">New Community! DoBeDo Student Residence ที่พักนักศึกษาสุดคูล ตอบโจทย์ชาว BU ที่สุด</h3>
-                    <p class="news-excerpt" id="news-2-desc">เปิดตัวอย่างเป็นทางการ พร้อมให้จองห้องพักแล้ววันนี้ กับ DoBeDo Student Residence ที่พักสำหรับเหล่านักศึกษา...</p>
-                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
-                </div>
-            </article>
+                        <span class="news-tag highlight">New Community!</span>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">4/12/2025</span>
+                        <h3 class="news-headline" id="news-2-title">New Community! DoBeDo Student Residence ที่พักนักศึกษาสุดคูล ตอบโจทย์ชาว BU ที่สุด</h3>
+                        <p class="news-excerpt" id="news-2-desc">เปิดตัวอย่างเป็นทางการ พร้อมให้จองห้องพักแล้ววันนี้ กับ DoBeDo Student Residence ที่พักสำหรับเหล่านักศึกษา...</p>
+                        <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                    </div>
+                </article>
 
-            <article class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="https://cms.kapook.com/uploads/tag/1/ID_313_636234a1a695e.jpg" alt="News 3" class="news-img">
-                </div>
-                <div class="news-content">
-                    <span class="news-date">12/09/2025</span>
-                    <h3 class="news-headline" id="news-3-title">รู้จัก BU แบบอินไซท์ รวมทุกหลักสูตร ตอบโจทย์ตลาดงาน ทันเทรนด์ เน้นลงมือจริง</h3>
-                    <p class="news-excerpt" id="news-3-desc">เมื่อเทรนด์โลกเปลี่ยนเร็ว การเป็นคนที่ทันเทรนด์และพร้อมรับมือกับอนาคตที่เปลี่ยนไปจึงสำคัญที่สุด ไม่ว่าจะเป็นด้านเทคโนโลยี...</p>
-                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
-                </div>
-            </article>
+                <article class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="https://cms.kapook.com/uploads/tag/1/ID_313_636234a1a695e.jpg" alt="News 3" class="news-img">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">12/09/2025</span>
+                        <h3 class="news-headline" id="news-3-title">รู้จัก BU แบบอินไซท์ รวมทุกหลักสูตร ตอบโจทย์ตลาดงาน ทันเทรนด์ เน้นลงมือจริง</h3>
+                        <p class="news-excerpt" id="news-3-desc">เมื่อเทรนด์โลกเปลี่ยนเร็ว การเป็นคนที่ทันเทรนด์และพร้อมรับมือกับอนาคตที่เปลี่ยนไปจึงสำคัญที่สุด ไม่ว่าจะเป็นด้านเทคโนโลยี...</p>
+                        <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                    </div>
+                </article>
 
-            <article class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="https://info.muslimthaipost.com/upfile/2015/07/21/6.jpg" alt="News 4" class="news-img">
-                </div>
-                <div class="news-content">
-                    <span class="news-date">30/10/2025</span>
-                    <h3 class="news-headline" id="news-4-title">มากกว่าแค่งานออกแบบ: ส่องอินไซท์การเรียน ป.โท สถาปัตย์ฯ</h3>
-                    <p class="news-excerpt" id="news-4-desc">ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย...</p>
-                    <a href="#" class="read-more">อ่านต่อ &rarr;</a>
-                </div>
-            </article>
+                <article class="news-card">
+                    <div class="news-image-wrapper">
+                        <img src="https://info.muslimthaipost.com/upfile/2015/07/21/6.jpg" alt="News 4" class="news-img">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">30/10/2025</span>
+                        <h3 class="news-headline" id="news-4-title">มากกว่าแค่งานออกแบบ: ส่องอินไซท์การเรียน ป.โท สถาปัตย์ฯ</h3>
+                        <p class="news-excerpt" id="news-4-desc">ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย...</p>
+                        <a href="#" class="read-more">อ่านต่อ &rarr;</a>
+                    </div>
+                </article>
 
-        </div> 
-        
-        <a href="#" class="view-all-bar">
-            <span class="view-all-text" id="btn-view-all">อ่านข่าวทั้งหมด</span>
-            <span class="view-all-icon">
+            </div>
+
+            <a href="#" class="view-all-bar">
+                <span class="view-all-text" id="btn-view-all">อ่านข่าวทั้งหมด</span>
+                <span class="view-all-icon">
                 <svg width="30" height="16" viewBox="0 0 30 16" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="0" y1="8" x2="28" y2="8"></line>
                     <polyline points="22 2 28 8 22 14"></polyline>
                 </svg>
             </span>
-        </a>
+            </a>
 
-    </div> 
-</section>
+        </div>
+    </section>
+    </div>
+    </div>
+    </section>
+
+    <section class="curriculum-banner">
+        <div class="content-container banner-layout">
+
+            <div class="banner-text-content">
+                <h2 class="banner-title">
+                    <span id="curric-title">หลักสูตร</span><br>
+                    <span class="highlight-text" id="curric-sub">มหาวิทยาลัยจีนีมิ</span>
+                </h2>
+                <p class="banner-desc" id="curric-desc">
+                    ที่ มหาวิทยาลัยจีนีมิ เราเน้นการเรียนรู้ผนวกความคิดสร้างสรรค์ เน้นการปฏิบัติจริง ด้วยอุปกรณ์ที่ทันสมัย เปิดกว้างให้อิสระทางความคิด เพื่อให้เกิดประสบการณ์จริง พร้อมเข้าสู่โลกการทำงานอย่างมืออาชีพ
+                </p>
+                <a href="#" class="banner-btn" id="curric-btn">ดูหลักสูตรทั้งหมด</a>
+            </div>
+
+            <div class="banner-visuals">
+                <div class="shape-green"></div>
+                <div class="shape-green-small"></div>
+
+                <div class="floating-card">
+                    <div class="card-line long"></div>
+                    <div class="card-line medium"></div>
+                    <div class="card-line short"></div>
+                </div>
+
+                <div class="shape-yellow"></div>
             </div>
         </div>
     </section>
+    <section class="degree-levels-section">
+        <div class="content-container">
 
-<script>
+            <div class="degree-grid">
+                <a href="#" class="degree-card large-card">
+                    <div class="degree-bg" style="background-image: url('https://s.isanook.com/ca/0/ud/278/1392845/istock-512816812.jpg');"></div>
+                    <div class="degree-overlay"></div>
+                    <div class="degree-content">
+                        <h3 class="degree-title" id="deg-bach-title">ปริญญาตรี</h3>
+                        <span class="degree-subtitle" id="deg-bach-sub">Bachelor's Degree</span>
+                        <p class="degree-desc" id="deg-bach-desc">12 คณะ หลักสูตรเด่น อินเทรนด์ข้ามยุค</p>
+                    </div>
+                </a>
+
+                <a href="#" class="degree-card">
+                    <div class="degree-bg" style="background-image: url('https://images.unsplash.com/photo-1531545514256-b1400bc00f31?q=80&w=1974&auto=format&fit=crop');"></div>
+                    <div class="degree-overlay"></div>
+                    <div class="degree-content">
+                        <h3 class="degree-title" id="deg-dip-title">ปริญญาตรี เทียบโอน ปวส.</h3>
+                        <span class="degree-subtitle" id="deg-dip-sub">Bachelor's Degree for Diploma</span>
+                    </div>
+                </a>
+
+                <a href="#" class="degree-card">
+                    <div class="degree-bg" style="background-image: url('https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2070&auto=format&fit=crop');"></div>
+                    <div class="degree-overlay"></div>
+                    <div class="degree-content">
+                        <h3 class="degree-title" id="deg-master-title">ปริญญาโท</h3>
+                        <span class="degree-subtitle" id="deg-master-sub">Master's Degree</span>
+                        <p class="degree-desc" id="deg-master-desc">หลักสูตรทันสมัยที่ต่อยอดโอกาส และทักษะอาชีพ</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+    <div class="skytrain-container">
+        <img src="Pictures/bts-train.png.png" class="bts-train" alt="BTS Train">
+
+        <div class="sky-track"></div>
+        <div class="sky-pillars"></div>
+
+        <div class="bushes"></div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="content-container">
+            <div class="footer-widgets">
+
+                <div class="footer-col">
+                    <h3 class="footer-title" id="ft-title-faculty">คณะ / สาขา</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="ft-fac-digital">คณะดิจิทัลมีเดีย</a></li>
+                        <li><a href="#" id="ft-fac-comm">คณะนิเทศศาสตร์</a></li>
+                        <li><a href="#" id="ft-fac-business">คณะบริหารธุรกิจ</a></li>
+                        <li><a href="#" id="ft-fac-eng">คณะวิศวกรรมศาสตร์</a></li>
+                        <li><a href="#" id="ft-fac-arch">คณะสถาปัตยกรรมศาสตร์</a></li>
+                        <li><a href="#" id="ft-fac-law">คณะนิติศาสตร์</a></li>
+                        <li><a href="#" id="ft-fac-inter">วิทยาลัยนานาชาติ</a></li>
+                        <li><a href="#" id="ft-fac-grad">บัณฑิตวิทยาลัย (ป.โท-เอก)</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title" id="ft-title-dept">หน่วยงาน</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="ft-dept-reg">สำนักงานทะเบียน</a></li>
+                        <li><a href="#" id="ft-dept-library">สำนักหอสมุด</a></li>
+                        <li><a href="#" id="ft-dept-inter">สำนักงานวิเทศสัมพันธ์</a></li>
+                        <li><a href="#" id="ft-dept-finance">สำนักงานการคลัง</a></li>
+                    </ul>
+
+                    <h3 class="footer-title mt-4" id="ft-title-personnel">บุคลากร</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="ft-pers-staff">สำหรับบุคลากร (E-Staff)</a></li>
+                        <li><a href="#" id="ft-pers-job">ร่วมงานกับเรา</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 class="footer-title" id="ft-title-pr">สื่อประชาสัมพันธ์</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="ft-pr-news">ข่าวประชาสัมพันธ์</a></li>
+                        <li><a href="#" id="ft-pr-identity">อัตลักษณ์องค์กร (CI)</a></li>
+                        <li><a href="#" id="ft-pr-logo">ดาวน์โหลดโลโก้</a></li>
+                        <li><a href="#" id="ft-pr-song">เพลงมหาวิทยาลัย</a></li>
+                    </ul>
+
+                    <h3 class="footer-title mt-4" id="ft-title-check">ตรวจสอบวุฒิ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="ft-check-grad">ผู้สำเร็จการศึกษา</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h3 class="footer-title" id="ft-title-contact">ติดต่อเรา</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.86 2 10.61C2 14.86 5.61 18.42 10.5 19.06V21.5L14.75 19.22H12C17.52 19.22 22 15.36 22 10.61C22 5.86 17.52 2 12 2Z"/></svg>
+                            <span>@genimi_univ</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>0000000</span>
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>info@genimi.ac.th</span>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="feedback-btn" id="ft-btn-feedback">
+                        รับข้อเสนอแนะ
+                    </a>
+
+                    <div class="social-icons">
+                        <a href="#" class="sc-icon facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#" class="sc-icon twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#" class="sc-icon youtube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                        <a href="#" class="sc-icon instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                    <div class="footer-policy">
+                        <p id="ft-policy-pdpa">นโยบายการคุ้มครองข้อมูลส่วนบุคคล</p>
+                        <p class="copyright">&copy; 2025 GENIMI University.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
         // 1. ฐานข้อมูลคำศัพท์ (Dictionary)
         const translations = {
             th: {
@@ -166,7 +421,7 @@
                 navNews: "ข่าวสาร",
                 navAbout: "เกี่ยวกับมหาวิทยาลัย",
                 btnApply: "สมัครเรียน",
-                
+
                 // เมนูลอย (Quick Menu)
                 qCourse: "หลักสูตร",
                 qInter: "International<br>Programs",
@@ -186,15 +441,59 @@
                 // เนื้อหาข่าว
                 news1Title: "Virtual Production and Immersive Experience Design อนาคตของวงการภาพยนตร์ระดับโลก",
                 news1Desc: "อยากสร้างภาพยนตร์เจ๋งๆ ในฉากสุดล้ำที่เหนือจินตนาการ หรือปั้นคอนเทนต์เสมือนจริง คณะดิจิทัลมีเดียและศิลปะภาพยนตร์...",
-                
+
                 news2Title: "New Community! DoBeDo Student Residence ที่พักนักศึกษาสุดคูล ตอบโจทย์ชาว BU ที่สุด",
                 news2Desc: "เปิดตัวอย่างเป็นทางการ พร้อมให้จองห้องพักแล้ววันนี้ กับ DoBeDo Student Residence ที่พักสำหรับเหล่านักศึกษา...",
-                
+
                 news3Title: "รู้จัก BU แบบอินไซท์ รวมทุกหลักสูตร ตอบโจทย์ตลาดงาน ทันเทรนด์ เน้นลงมือจริง",
                 news3Desc: "เมื่อเทรนด์โลกเปลี่ยนเร็ว การเป็นคนที่ทันเทรนด์และพร้อมรับมือกับอนาคตที่เปลี่ยนไปจึงสำคัญที่สุด ไม่ว่าจะเป็นด้านเทคโนโลยี...",
-                
+
                 news4Title: "มากกว่าแค่งานออกแบบ: ส่องอินไซท์การเรียน ป.โท สถาปัตย์ฯ",
-                news4Desc: "ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย..."
+                news4Desc: "ในยุคที่การแข่งขันสูง สกิล 'ดีไซน์' อย่างเดียวอาจไม่พออีกต่อไป วงการสถาปัตยกรรมและการออกแบบยุคใหม่ ไม่ได้ต้องการแค่คนออกแบบสวย...",
+
+                curricTitle: "หลักสูตร",
+                curricSub: "มหาวิทยาลัยจีนีมิ",
+                curricDesc: "ที่ มหาวิทยาลัยจีนีมิ เราเน้นการเรียนรู้ผนวกความคิดสร้างสรรค์ เน้นการปฏิบัติจริง ด้วยอุปกรณ์ที่ทันสมัย เปิดกว้างให้อิสระทางความคิด เพื่อให้เกิดประสบการณ์จริง พร้อมเข้าสู่โลกการทำงานอย่างมืออาชีพ",
+                curricBtn: "ดูหลักสูตรทั้งหมด",
+
+                degBachTitle: "ปริญญาตรี",
+                degBachSub: "Bachelor's Degree",
+                degBachDesc: "14 คณะ หลักสูตรเด่น อินเทรนด์ข้ามยุค",
+
+                degDipTitle: "ปริญญาตรี เทียบโอน ปวส.",
+                degDipSub: "Bachelor's Degree for Diploma",
+
+                degMasterTitle: "ปริญญาโท",
+                degMasterSub: "Master's Degree",
+                degMasterDesc: "หลักสูตรทันสมัยที่ต่อยอดโอกาส และทักษะอาชีพ",
+
+                ftTitleFaculty: "คณะ / สาขา",
+                ftFacDigital: "คณะดิจิทัลมีเดีย",
+                ftFacComm: "คณะนิเทศศาสตร์",
+                ftFacBusiness: "คณะบริหารธุรกิจ",
+                ftFacEng: "คณะวิศวกรรมศาสตร์",
+                ftFacArch: "คณะสถาปัตยกรรมศาสตร์",
+                ftFacLaw: "คณะนิติศาสตร์",
+                ftFacInter: "วิทยาลัยนานาชาติ",
+                ftFacGrad: "บัณฑิตวิทยาลัย (ป.โท-เอก)",
+                ftTitleDept: "หน่วยงาน",
+                ftDeptReg: "สำนักงานทะเบียน",
+                ftDeptLibrary: "สำนักหอสมุด",
+                ftDeptInter: "สำนักงานวิเทศสัมพันธ์",
+                ftDeptFinance: "สำนักงานการคลัง",
+                ftTitlePersonnel: "บุคลากร",
+                ftPersStaff: "สำหรับบุคลากร (E-Staff)",
+                ftPersJob: "ร่วมงานกับเรา",
+                ftTitlePr: "สื่อประชาสัมพันธ์",
+                ftPrNews: "ข่าวประชาสัมพันธ์",
+                ftPrIdentity: "อัตลักษณ์องค์กร (CI)",
+                ftPrLogo: "ดาวน์โหลดโลโก้",
+                ftPrSong: "เพลงมหาวิทยาลัย",
+                ftTitleCheck: "ตรวจสอบวุฒิ",
+                ftCheckGrad: "ผู้สำเร็จการศึกษา",
+                ftTitleContact: "ติดต่อเรา",
+                ftBtnFeedback: "รับข้อเสนอแนะ",
+                ftPolicyPdpa: "นโยบายการคุ้มครองข้อมูลส่วนบุคคล",
             },
             en: {
                 // Top Nav
@@ -223,15 +522,58 @@
                 // News Content
                 news1Title: "Virtual Production and Immersive Experience Design: The Future of Global Filmmaking",
                 news1Desc: "Want to create cool movies in unimaginable futuristic scenes or craft virtual content? The School of Digital Media...",
-                
+
                 news2Title: "New Community! DoBeDo Student Residence: The Coolest Dorm for BU Students",
                 news2Desc: "Officially launched and ready for booking! DoBeDo Student Residence, accommodation designed for students...",
-                
+
                 news3Title: "Get to Know BU: Insight into All Curriculums, Meeting Job Market Needs",
                 news3Desc: "As global trends change rapidly, being trendy and ready for the future is crucial. Whether it involves technology...",
-                
+
                 news4Title: "More Than Design: Insight into Master of Architecture",
-                news4Desc: "In a highly competitive era, 'design' skills alone might not be enough. The modern architecture and design industry..."
+                news4Desc: "In a highly competitive era, 'design' skills alone might not be enough. The modern architecture and design industry...",
+
+                curricTitle: "Curriculum",
+                curricSub: "Genimi University",
+                curricDesc: "At Genimi University, we combine learning with creativity, focusing on practical experience with modern equipment, fostering freedom of thought to build professional skills ready for the real world.",
+                curricBtn: "View All Courses",
+
+                degBachTitle: "Bachelor's Degree",
+                degBachSub: "Undergraduate Programs",
+                degBachDesc: "14 Faculties, Outstanding Curriculums, Trendy Across Eras",
+
+                degDipTitle: "Bachelor's Degree for Diploma",
+                degDipSub: "High Vocational Certificate Transfer",
+
+                degMasterTitle: "Master's Degree",
+                degMasterSub: "Graduate Programs",
+                degMasterDesc: "Modern curriculum expanding opportunities and career skills",
+                ftTitleFaculty: "Faculty / Schools",
+                ftFacDigital: "School of Digital Media",
+                ftFacComm: "School of Communication Arts",
+                ftFacBusiness: "School of Business",
+                ftFacEng: "School of Engineering",
+                ftFacArch: "School of Architecture",
+                ftFacLaw: "School of Law",
+                ftFacInter: "International College",
+                ftFacGrad: "Graduate School",
+                ftTitleDept: "Departments",
+                ftDeptReg: "Registrar Office",
+                ftDeptLibrary: "Library",
+                ftDeptInter: "International Relations",
+                ftDeptFinance: "Finance Office",
+                ftTitlePersonnel: "Personnel",
+                ftPersStaff: "For Staff (E-Staff)",
+                ftPersJob: "Careers",
+                ftTitlePr: "PR Media",
+                ftPrNews: "PR News",
+                ftPrIdentity: "Corporate Identity (CI)",
+                ftPrLogo: "Download Logo",
+                ftPrSong: "University Song",
+                ftTitleCheck: "Verification",
+                ftCheckGrad: "Graduates Verification",
+                ftTitleContact: "Contact Us",
+                ftBtnFeedback: "Feedback",
+                ftPolicyPdpa: "Personal Data Protection Policy",
             }
         };
 
@@ -279,6 +621,49 @@
             safeSetText('news-3-desc', t.news3Desc);
             safeSetText('news-4-title', t.news4Title);
             safeSetText('news-4-desc', t.news4Desc);
+            safeSetText('curric-title', t.curricTitle);
+            safeSetText('curric-sub', t.curricSub);
+            safeSetText('curric-desc', t.curricDesc);
+            safeSetText('curric-btn', t.curricBtn);
+            safeSetText('deg-bach-title', t.degBachTitle);
+            safeSetText('deg-bach-sub', t.degBachSub);
+            safeSetText('deg-bach-desc', t.degBachDesc);
+            safeSetText('deg-dip-title', t.degDipTitle);
+            safeSetText('deg-dip-sub', t.degDipSub);
+            safeSetText('deg-master-title', t.degMasterTitle);
+            safeSetText('deg-master-sub', t.degMasterSub);
+            safeSetText('deg-master-desc', t.degMasterDesc);
+            safeSetText('ft-title-faculty', t.ftTitleFaculty);
+            safeSetText('ft-fac-digital', t.ftFacDigital);
+            safeSetText('ft-fac-comm', t.ftFacComm);
+            safeSetText('ft-fac-business', t.ftFacBusiness);
+            safeSetText('ft-fac-eng', t.ftFacEng);
+            safeSetText('ft-fac-arch', t.ftFacArch);
+            safeSetText('ft-fac-law', t.ftFacLaw);
+            safeSetText('ft-fac-inter', t.ftFacInter);
+            safeSetText('ft-fac-grad', t.ftFacGrad);
+            safeSetText('ft-title-dept', t.ftTitleDept);
+            safeSetText('ft-dept-reg', t.ftDeptReg);
+            safeSetText('ft-dept-library', t.ftDeptLibrary);
+            safeSetText('ft-dept-inter', t.ftDeptInter);
+            safeSetText('ft-dept-finance', t.ftDeptFinance);
+            safeSetText('ft-title-personnel', t.ftTitlePersonnel);
+            safeSetText('ft-pers-staff', t.ftPersStaff);
+            safeSetText('ft-pers-job', t.ftPersJob);
+            safeSetText('ft-title-pr', t.ftTitlePr);
+            safeSetText('ft-pr-news', t.ftPrNews);
+            safeSetText('ft-pr-identity', t.ftPrIdentity);
+            safeSetText('ft-pr-logo', t.ftPrLogo);
+            safeSetText('ft-pr-song', t.ftPrSong);
+            safeSetText('ft-title-check', t.ftTitleCheck);
+            safeSetText('ft-check-grad', t.ftCheckGrad);
+            safeSetText('ft-title-contact', t.ftTitleContact);
+            safeSetText('ft-btn-feedback', t.ftBtnFeedback);
+            safeSetText('ft-policy-pdpa', t.ftPolicyPdpa);
+            safeSetText('mob-nav-course', t.navCourse);
+            safeSetText('mob-nav-schedule', t.navSchedule);
+            safeSetText('mob-nav-news', t.navNews);
+            safeSetText('mob-nav-about', t.navAbout);
 
             // เปลี่ยนปุ่มอ่านต่อทั้งหมด
             const readMoreBtns = document.querySelectorAll('.read-more');
@@ -302,6 +687,23 @@
                 }
             }
         }
+        // --- ฟังก์ชันเปิด/ปิด เมนูมือถือ ---
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // (ส่วนเสริม) กดพื้นที่ว่างๆ นอกเมนูแล้วให้ปิดเมนู
+        document.addEventListener('click', function(event) {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger-menu');
+
+            // ถ้าคลิกไม่ได้อยู่ที่ เมนู และ ไม่ได้อยู่ที่ปุ่ม hamburger
+            if (!menu.contains(event.target) && !hamburger.contains(event.target) && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        });
     </script>
 </body>
+
 </html>
